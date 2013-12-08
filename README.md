@@ -3,7 +3,7 @@
 
 A public calculator that will actually attempt to put numbers to the Basic Income proposal. Over time it will grow in complexity.
 
-![Calculator Screenshot](https://raw.github.com/elimc/basic-income/master/images/basic-income-calculator.png "Basic Income Calculator Image")
+![Calculator Screenshot](https://raw.github.com/elimc/basic-income/master/images/basic-income-calculator.PNG "Basic Income Calculator Image")
 
 Install
 -------
