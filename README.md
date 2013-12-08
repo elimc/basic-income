@@ -3,6 +3,8 @@
 
 A public calculator that will actually attempt to put numbers to the Basic Income proposal. Over time it will grow in complexity.
 
+![Calculator Screenshot](https://raw.github.com/elimc/basic-income/master/images/basic-income-calculator.png "Basic Income Calculator Image")
+
 Install
 -------
 
@@ -13,7 +15,7 @@ FAQ
 
 __Can I contribute comments and suggestions to improve this calculator?__
 
-Please. I'm not an accountant. I need more variables and a better understanding of the US budget.
+Please. I'm not an accountant. I need more variables and a better understanding of the US budget. I would also like to include more input on taxation.
 
 __Will you accept pull requests?__
 
@@ -24,6 +26,7 @@ TODO
 
 * Improve the UI/UX so it doens't look like crap.
 * Include more variables to make the calculator more accurate.
+* Include taxation data.
 * World domination
 
 Changelog

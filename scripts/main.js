@@ -1,11 +1,17 @@
 $(document).ready(function() {
-                
+    
+    /**
+     * On click, checks all the checkboxes in a specific fieldset.
+     */
     $(function () {
         $('.checkAll').on('click', function () {
             $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
         });
     });
 
+    /**
+     * When form is submitted, calculate basic income, and display it in <div id="result"><div>
+     */
     $("#calculate").click(function () {
 
         var usCitizens = $("#usCitizens").val(),
@@ -72,7 +78,7 @@ $(document).ready(function() {
             console.log(sum);
             console.log(rounded.toLocaleString("en-US"));
 
-        $("#result").html("$" + roundedWithCommas + " per citizen<br>$" + perMonthWithCommas + " per month");
+        $("#result").html("$" + roundedWithCommas + " per citizen<br>$" + perMonthWithCommas + " per month per citizen");
 
     });
 

@@ -1,6 +1,10 @@
 #result {
     margin-top: 10px;
+    margin-left: 15px;
     height: 40px;
     font-weight: bold;
     color: darkgreen;
+}
+#calculate {
+    margin-left: 15px;
 }
