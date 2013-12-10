@@ -7,7 +7,7 @@ $(document).ready(function() {
         $('.checkAll').on('click', function () {
             $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
         });
-    });
+    }); // End checkboxes helper function.
 
     /**
      * Add commas and a dollar sign while user is typing. Also removes cents and spaces and some other garbage.
@@ -40,7 +40,7 @@ $(document).ready(function() {
                 }
             }
         });
-    });
+    }); // End formatCurrency plugin.
 
 
     /**
@@ -50,6 +50,7 @@ $(document).ready(function() {
      */
     $("#calculate").click(function () {
 
+        // Grab values inserted by the user and assign then to a variable.
         var usCitizens = $("#usCitizens").val(),
             socialSecurity = $("#socialSecurity").val();
             unemploymentWelfare = $("#unemploymentWelfare").val();
@@ -59,6 +60,7 @@ $(document).ready(function() {
             defenseSpending = $("#defenseSpending").val();
             otherDiscretionary = $("#otherDiscretionary").val();
 
+        // Put the variables into an array.
         var inputs = [ 
                 usCitizens, 
                 socialSecurity,
@@ -68,8 +70,7 @@ $(document).ready(function() {
                 interestOnDebt,
                 defenseSpending,
                 otherDiscretionary
-            ],
-            cleanInputs = [];
+            ];
 
         /**
          * Remove spaces, commas, and dollar signs. Make sure the element is a float.
@@ -82,12 +83,15 @@ $(document).ready(function() {
             var floated = parseFloat(sanitize);
             return floated;
         }
-
+        
+        // Loop through the inputs array to sanitize each variable.
+        var cleanInputs = [];
         $(inputs).each(function() {
             currentInput = cleanUp(this);
             cleanInputs.push(currentInput);
         });
-
+        
+        // Pull each value out of the cleanInputs array and give it a variable.
         var usCitizensClean = cleanInputs[0],
             socialSecurityClean = cleanInputs[1],
             unemploymentWelfareClean = cleanInputs[2],
@@ -97,6 +101,8 @@ $(document).ready(function() {
             defenseSpendingClean = cleanInputs[6],
             otherDiscretionarylean = cleanInputs[7];
 
+        // If the "Replace with UBI" checkbox is not checked, don't calculate it in the final equation.
+        // We do this by setting it to zero.
         if ($("#socialSecurityChecked").prop("checked") === false) { socialSecurityClean = 0; }
         if ($("#unemploymentWelfareChecked").prop("checked") === false) { unemploymentWelfareClean = 0; }
         if ($("#medicareChecked").prop("checked") === false) { medicareClean = 0; }
@@ -105,6 +111,7 @@ $(document).ready(function() {
         if ($("#defenseSpendingChecked").prop("checked") === false) { defenseSpendingClean = 0; }
         if ($("#otherDiscretionaryChecked").prop("checked") === false) { otherDiscretionarylean = 0; }
 
+        // Calculate the UBI payments.
         var ubiSum = (socialSecurityClean + unemploymentWelfareClean + medicareClean
                 + medicaidClean + interestOnDebtClean + defenseSpendingClean 
                 + otherDiscretionarylean) / usCitizensClean,
@@ -113,8 +120,9 @@ $(document).ready(function() {
             perMonth = Math.round (rounded / 12),
             perMonthWithCommas = perMonth.toLocaleString("en-US");
             
+        // Output result of calculations.
         $("#result").html("$" + roundedWithCommas + " per citizen<br>$" + perMonthWithCommas + " per month per citizen");
 
-    });
+    }); // End main calculator.
 
 });
