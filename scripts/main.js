@@ -72,12 +72,14 @@ $(document).ready(function() {
             cleanInputs = [];
 
         /**
-         * Clean up the data for manipulation.
+         * Remove spaces, commas, and dollar signs. Make sure the element is a float.
+         * 
+         * @param {string} rawInput User input value without sanitization.
+         * @returns {float} Sanitized user input. 
          */
         function cleanUp( rawInput ) {
-            var withOutCommas = rawInput.replace(/,/g, "");
-            var removeWhiteSpace = withOutCommas.replace(/\s/g, "");
-            var floated = parseFloat(removeWhiteSpace);
+            var sanitize = rawInput.replace(/,|[$]|\s/g, "");
+            var floated = parseFloat(sanitize);
             return floated;
         }
 
@@ -103,14 +105,14 @@ $(document).ready(function() {
         if ($("#defenseSpendingChecked").prop("checked") === false) { defenseSpendingClean = 0; }
         if ($("#otherDiscretionaryChecked").prop("checked") === false) { otherDiscretionarylean = 0; }
 
-        var sum = (socialSecurityClean + unemploymentWelfareClean + medicareClean
+        var ubiSum = (socialSecurityClean + unemploymentWelfareClean + medicareClean
                 + medicaidClean + interestOnDebtClean + defenseSpendingClean 
                 + otherDiscretionarylean) / usCitizensClean,
-            rounded = Math.round( sum ),
-            roundedWithCommas = rounded.toLocaleString("en-US");
-            perMonth = Math.round (rounded / 12);
+            rounded = Math.round( ubiSum ),
+            roundedWithCommas = rounded.toLocaleString("en-US"),
+            perMonth = Math.round (rounded / 12),
             perMonthWithCommas = perMonth.toLocaleString("en-US");
-
+            
         $("#result").html("$" + roundedWithCommas + " per citizen<br>$" + perMonthWithCommas + " per month per citizen");
 
     });
