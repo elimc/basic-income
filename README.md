@@ -27,10 +27,15 @@ TODO
 * Improve the UI/UX so it doens't look like crap.
 * Include more variables to make the calculator more accurate.
 * Include taxation data.
+* Add more info About UBI
+* Add tooltips
 * World domination
 
 Changelog
 ---------
+### 1.1 (December 9, 2013)
+* Added formatCurrency plugin for more friendly input
+* Commented out code to make it much easier for others to work on
 
 ### 1.0 (December 7, 2013)
 * Initial Commit, calculator completely functional, but ugly.
