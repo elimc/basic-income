@@ -8,3 +8,7 @@
 #calculate {
     margin-left: 15px;
 }
+.message {
+    color: red;
+    font-weight: bold;
+}

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     /**
-     * On click, checks all the checkboxes in a specific fieldset.
+     * Checks all the checkboxes in a specific fieldset, on user click.
      */
     $(function () {
         $('.checkAll').on('click', function () {
@@ -10,6 +10,42 @@ $(document).ready(function() {
     });
 
     /**
+     * Add commas and a dollar sign while user is typing. Also removes cents and spaces and some other garbage.
+     * 
+     * jQuery formatCurrency plugin: http://plugins.jquery.com/project/formatCurrency
+     */
+    $(function() {
+
+        // Format while typing & warn on decimals entered, no cents
+        $('.formatInput').blur(function() {
+            $(this).formatCurrency({ colorize: true, negativeFormat: '-%s%n', roundToDecimalPlace: 0 });
+        })
+        .keyup(function(e) {
+            var e = window.event || e;
+            var keyUnicode = e.charCode || e.keyCode;
+            if (e !== undefined) {
+                switch (keyUnicode) {
+                    case 16: break; // Shift
+                    case 27: this.value = ''; break; // Esc: clear entry
+                    case 35: break; // End
+                    case 36: break; // Home
+                    case 37: break; // cursor left
+                    case 38: break; // cursor up
+                    case 39: break; // cursor right
+                    case 40: break; // cursor down
+                    case 78: break; // N (Opera 9.63+ maps the "." from the number key section to the "N" key too!) (See: http://unixpapa.com/js/key.html search for ". Del")
+                    case 110: break; // . number block (Opera 9.63+ maps the "." from the number block to the "N" key (78) !!!)
+                    case 190: break; // .
+                    default: $(this).formatCurrency({ colorize: true, negativeFormat: '-%s%n', roundToDecimalPlace: -1, eventOnDecimalsEntered: true });
+                }
+            }
+        });
+    });
+
+
+    /**
+     * Main Calculator
+     * 
      * When form is submitted, calculate basic income, and display it in <div id="result"><div>
      */
     $("#calculate").click(function () {
@@ -74,9 +110,6 @@ $(document).ready(function() {
             roundedWithCommas = rounded.toLocaleString("en-US");
             perMonth = Math.round (rounded / 12);
             perMonthWithCommas = perMonth.toLocaleString("en-US");
-
-            console.log(sum);
-            console.log(rounded.toLocaleString("en-US"));
 
         $("#result").html("$" + roundedWithCommas + " per citizen<br>$" + perMonthWithCommas + " per month per citizen");
 
