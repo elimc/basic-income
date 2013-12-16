@@ -4,25 +4,236 @@
         <title>Universal Basic Income Calculator v1.1</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        
+
         <link rel="stylesheet" href="scripts/normalize.css" />
         <link rel="stylesheet" href="scripts/main.css" />
-        
-        <script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!--Load jQuery-->
+        <script type="text/javascript" src="./scripts/jquery-1.10.2.min.js"></script>
+
+        <!--Load jQuery plugin to format currency dynamically. Just apply class="formatInput"-->
         <script type="text/javascript" src="scripts/jquery.formatCurrency-1.4.0.min.js"></script>
+
+        <!--Load Google Charts API-->
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+        <!--Load main calculator script-->
         <script type="text/javascript" src="scripts/main.js"></script>
-        
+
     </head>
     <body>
 
-        <h1>Universal Basic Income Calculator v1.1</h1>
+        <input type="text" name="chance" id="chance" class="text" value="50">
+
+<input type="range" id="chanceSlider" class="vHorizon" min="0.01" max="98" step="0.01" style="background-color: #00aec8; width: 50%;">
         
+        <h1>Universal Basic Income Calculator v1.1</h1>
+
         <p>The following is based on 2010 numbers. That is the date of the last census and has the most accurate numbers on US citizens.</p>
         <p><a href="http://en.wikipedia.org/wiki/2010_United_States_federal_budget">2010 US Federal Budget</a></p>
         <p><a href="http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf">2010 US Census Population Data</a></p>
-        
+
+        <!--onchange="tipCalculate(this.value)"-->
+        Enter the bill amount for your meal: 
+        <input type="text" id="bill" value="200" disabled="disabled"/>
+
+        Tip Percentage:
+        <input type="range" min="0" max="100" value="0" step="1" onchange="tipCalculate(this.value);" /><span id="slideVal">0%</span><br>
+
+        Tip to leave = <span id="tip">$0</span><br><br>
+
         <form id="calculator" action="">
-            
+
+            <div id="revenue">
+                <div id="revenue-title"><h2>Revenue</h2></div>
+                <div class="row">
+                    <div class="revenue-column-header grid5">Revenue Type</div>
+                    <div class="revenue-column-header grid5">Income Base</div>
+                    <div class="revenue-column-header grid5">Funding Level</div>
+                    <div class="revenue-column-header grid5">Current Revenue</div>
+                    <div class="revenue-column-header grid5">New Revenue</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row1 grid5"><label for="income-tax">Individual Income Taxes</label></div>
+                    <div class="revenue-row1 grid5"><input id="income-tax" class="formatInput" type="text" value="$6,403,000,000,000" /></div>
+                    <div class="revenue-row1 grid5"><input type="range" min="0" max="100" value="15" step="1" /></div>
+                    <div class="revenue-row1 grid5">$899,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="corporate-tax">Corporation Income Taxes</label></div>
+                    <div class="revenue-row2 grid5"><input id="corporate-tax" class="formatInput" type="text" value="$1,234,000,000,000" /></div>
+                    <div class="revenue-row2 grid5"><input type="range" min="0" max="100" value="15" step="1" /></div>
+                    <div class="revenue-row2 grid5">$191,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="ss-tax">Social Security Payroll Taxes</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$632,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="medicare-tax">Medicare Payroll Taxes</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$180,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="unimployment-tax">Unimployment Insurance</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$45,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="other-retirement-tax">Other Retirement</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$8,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="excise-tax">Excise Taxes</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$67,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="estate-tax">Estate & Gift Taxes</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$19,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="customs-tax">Customs Duties</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$25,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="deposit-tax">Deposits of earnings, Federal Reserve System</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$76,000,000,000</div>
+                </div>
+                <div class="row">
+                    <div class="revenue-row2 grid5"><label for="other-tax">Other Miscellaneous Receipts</label></div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$21,000,000,000</div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="revenue-row2 grid5">Total Revenue</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">—</div>
+                    <div class="revenue-row2 grid5">$2,163,000,000,000</div>
+                </div>
+            </div>
+
+            <div id="expense">
+                <div id="expense-title"><h2>Expenses</h2></div>
+                <fieldset>
+                    <h3>Mandatory</h3>
+                    <div class="row">
+                        <div class="expense-column-header grid6">Expense Type</div>
+                        <div class="expense-column-header grid6">Current Amount</div>
+                        <div class="expense-column-header grid6">Funding Level</div>
+                        <div class="expense-column-header grid6">New Cost</div>
+                        <div class="expense-column-header grid6"><label for="check-all-mandatory">Replace with UBI? </label><input id="check-all-mandatory" class="check-all" type="checkbox" /></div>
+                        <div class="expense-column-header grid6">UBI Amount</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="ss-expense">Social Security</label></div>
+                        <div class="expense-row1 grid6"><input id="ss-expense" class="formatInput" type="text" value="$701,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="medicare-expense">Medicare</label></div>
+                        <div class="expense-row1 grid6"><input id="medicare-expense" class="formatInput" type="text" value="$446,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="medicaid-expense">Medicaid</label></div>
+                        <div class="expense-row1 grid6"><input id="medicaid-expense" class="formatInput" type="text" value="$273,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="tarp-expense">TARP</label></div>
+                        <div class="expense-row1 grid6"><input id="tarp-expense" class="formatInput" type="text" value="-$110,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="other-mandatory-expense">Other Mandatory</label></div>
+                        <div class="expense-row1 grid6"><input id="other-mandatory-expense" class="formatInput" type="text" value="$644,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="expense-row1 grid6">Discretionary Cost</div>
+                        <div class="expense-row1 grid6"><input id="non-security-expense" class="formatInput" type="text" value="$491,000,000,000" /></div>
+                        <div class="expense-row1 grid6">—</div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6">—</div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <h3>Descretionary</h3>
+                    <div class="row">
+                        <div class="expense-column-header grid6">Expense Type</div>
+                        <div class="expense-column-header grid6">Current Amount</div>
+                        <div class="expense-column-header grid6">Funding Level</div>
+                        <div class="expense-column-header grid6">New Cost</div>
+                        <div class="expense-column-header grid6"><label for="check-all-discretionary">Replace with UBI? </label><input id="check-all-discretionary" class="check-all" type="checkbox" /></div>
+                        <div class="expense-column-header grid6">UBI Amount</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="security-expense">Security</label></div>
+                        <div class="expense-row1 grid6"><input id="security-expense" class="formatInput" type="text" value="$815,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid6"><label for="non-security-expense">Non-security</label></div>
+                        <div class="expense-row1 grid6"><input id="non-security-expense" class="formatInput" type="text" value="$491,000,000,000" /></div>
+                        <div class="expense-row1 grid6"><input type="range" min="0" max="100" value="100" step="1" /></div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6"><input type="checkbox" /></div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="expense-row1 grid6">Discretionary Cost</div>
+                        <div class="expense-row1 grid6"><input id="non-security-expense" class="formatInput" type="text" value="$491,000,000,000" /></div>
+                        <div class="expense-row1 grid6">—</div>
+                        <div class="expense-row1 grid6">$1000</div>
+                        <div class="expense-row1 grid6">—</div>
+                        <div class="expense-row1 grid6">$0</div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+
+
             <fieldset>
                 <h3>Population</h3>
                 <label for="usCitizens">Citizens 18+: </label><br>
@@ -74,6 +285,8 @@
 
             <div id="result"></div><br>
             <input type="button" id="calculate" value="calculate" />
+
+            <div id="chart_div"></div>
 
         </form>
 

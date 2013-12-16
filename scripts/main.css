@@ -1,10 +1,72 @@
+html {
+    font-size: 18px;
+}
+body {
+   width: 1140px;
+   margin: 0 auto;
+}
+#revenue {
+    clear: both;
+    padding-bottom: 30px;
+}
+.revenue-column-header,
+.expense-column-header,
+.revenue-row1,
+.revenue-row2,
+.expense-row1,
+.expense-row2 {
+    float: left;
+}
+.grid5 {
+    width: 20%;
+}
+.grid6 {
+    width: 16.66666666666665%;
+}
+.row {
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+
 #result {
     margin-top: 10px;
-    margin-left: 15px;
     height: 40px;
     font-weight: bold;
     color: darkgreen;
 }
 #calculate {
-    margin-left: 15px;
+}
+input[type="range"] {
+    height: 12px;
+    padding: 0px;
+}
+input {
+    padding: 3px;
+    border: none;
+    font-weight: 800;
+    background-color: rgb(245,245,245);
+    outline-color: cornflowerblue;
+    width: 160px;
+}
+input[disabled] {
+    background-color: #aaa;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    color: white;
+    background-color: #999;
+    font-weight: 800;
+    letter-spacing: .1em;
+    border-radius: 5px;
+    padding: 10px;
+    text-transform: uppercase;
+    outline: none;
+}
+fieldset {
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
 }

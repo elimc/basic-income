@@ -317,14 +317,14 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
+    appearance: inherit;
 }
 
 /**
  * Re-set default cursor for disabled elements.
  */
 
-button[disabled],
-html input[disabled] {
+button[disabled], html niput[disabled] {
     cursor: default;
 }
 

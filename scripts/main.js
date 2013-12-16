@@ -1,10 +1,18 @@
 $(document).ready(function() {
     
+    $('#chanceSlider').on('change', function(){
+        $('#chance').val($('#chanceSlider').val());
+    });
+
+    $('#chance').on('keyup', function(){
+        $('#chanceSlider').val($('#chance').val());
+    });
+    
     /**
      * Checks all the checkboxes in a specific fieldset, on user click.
      */
     $(function () {
-        $('.checkAll').on('click', function () {
+        $('.check-all').on('click', function () {
             $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
         });
     }); // End checkboxes helper function.
@@ -126,3 +134,45 @@ $(document).ready(function() {
     }); // End main calculator.
 
 });
+
+// Load the Visualization API and the piechart package.
+google.load('visualization', '1.0', {'packages': ['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawChart);
+
+// Callback that creates and populates a data table,
+// instantiates the pie chart, passes in the data and
+// draws it.
+function drawChart() {
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'Slices');
+    data.addRows([
+        ['Mushrooms', 3],
+        ['Onions', 1],
+        ['Olives', 1],
+        ['Zucchini', 1],
+        ['Pepperoni', 22]
+    ]);
+
+    // Set chart options
+    var options = {'title': 'How Much Pizza I Ate Last Night',
+        'width': 600,
+        'height': 600};
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+}
+
+function tipCalculate(slider) {
+    var tip = document.getElementById("tip");
+    var slideVal = document.getElementById("slideVal");
+    var bill = document.getElementById("bill").value;
+    var percent = slider * .01;
+    slideVal.innerHTML = slider + "%";
+    tip.innerHTML = "$" + (bill * percent).toFixed();
+}
