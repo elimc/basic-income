@@ -1,11 +1,43 @@
 $(document).ready(function() {
     
-    $('#chanceSlider').on('change', function(){
-        $('#chance').val($('#chanceSlider').val());
+    /**
+     * Remove spaces, commas, and dollar signs. Make sure the element is a float.
+     * 
+     * @param {string} rawInput User input value without sanitization.
+     * @returns {float} Sanitized user input. 
+     */
+    function cleanUp( rawInput ) {
+        var sanitize = rawInput.replace(/,|[$]|\s/g, "");
+        var floated = parseFloat(sanitize);
+        return floated;
+    }
+    
+    /**
+     * Insert commas into number.
+     * 
+     * @param {flat} val number to insert commas into.
+     * @returns {float} Number with proper commas.
+     */
+    function commaSeparateNumber( val ){
+        while (/(\d+)(\d{3})/.test(val.toString())){
+            val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+        }
+        return val;
+    }
+    
+    
+    $("#income-tax-slider").on("change", function() {
+        var unsanitizedVal = ($("#income-tax-slider").val() * .01) * cleanUp($("#income-tax").val());
+        var sanitizedVal = unsanitizedVal.toFixed();
+        $("#income-slider-percent").text($("#income-tax-slider").val() + "%");
+        $("#income-tax-new-revenue").val("$" + commaSeparateNumber( sanitizedVal ));
     });
-
-    $('#chance').on('keyup', function(){
-        $('#chanceSlider').val($('#chance').val());
+    
+    $("#corporate-tax-slider").on("change", function() {
+        var unsanitizedVal = ($("#corporate-tax-slider").val() * .01) * cleanUp($("#corporate-tax").val());
+        var sanitizedVal = unsanitizedVal.toFixed();
+        $("#corporate-slider-percent").text($("#corporate-tax-slider").val() + "%");
+        $("#corporate-tax-new-revenue").val("$" + commaSeparateNumber( sanitizedVal ));
     });
     
     /**
@@ -79,19 +111,33 @@ $(document).ready(function() {
                 defenseSpending,
                 otherDiscretionary
             ];
-
-        /**
-         * Remove spaces, commas, and dollar signs. Make sure the element is a float.
-         * 
-         * @param {string} rawInput User input value without sanitization.
-         * @returns {float} Sanitized user input. 
-         */
-        function cleanUp( rawInput ) {
-            var sanitize = rawInput.replace(/,|[$]|\s/g, "");
-            var floated = parseFloat(sanitize);
-            return floated;
-        }
+            
+        var incomeTaxNewRevenue = cleanUp( $("#income-tax-new-revenue").val()),
+            corporateTaxNewRevenue = cleanUp( $("#corporate-tax-new-revenue").val()),
+            ssTaxNewRevenue = cleanUp( $("#ss-tax-new-revenue").val()),
+            medicareTaxNewRevenue = cleanUp( $("#medicare-tax-new-revenue").val()),
+            unimploymentTaxNewRevenue = cleanUp( $("#unimployment-tax-new-revenue").val()),
+            otherRetirementTaxNewRevenue = cleanUp( $("#other-retirement-tax-new-revenue").val()),
+            exciseTaxNewRevenue = cleanUp( $("#excise-tax-new-revenue").val()),
+            estateTaxNewRevenue = cleanUp( $("#estate-tax-new-revenue").val()),
+            customsTaxNewRevenue = cleanUp( $("#customs-tax-new-revenue").val()),
+            depositTaxNewRevenue = cleanUp( $("#deposit-tax-new-revenue").val()),
+            otherTaxNewRevenue = cleanUp( $("#other-tax-new-revenue").val()),
+            revenueTotal = incomeTaxNewRevenue + 
+                    corporateTaxNewRevenue + 
+                    ssTaxNewRevenue + 
+                    medicareTaxNewRevenue +
+                    unimploymentTaxNewRevenue + 
+                    otherRetirementTaxNewRevenue + 
+                    exciseTaxNewRevenue + 
+                    estateTaxNewRevenue +
+                    customsTaxNewRevenue + 
+                    depositTaxNewRevenue + 
+                    otherTaxNewRevenue;
+            $("#revenue-total").val("$" + commaSeparateNumber(revenueTotal) );
+            
         
+
         // Loop through the inputs array to sanitize each variable.
         var cleanInputs = [];
         $(inputs).each(function() {
@@ -168,11 +214,11 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-function tipCalculate(slider) {
-    var tip = document.getElementById("tip");
-    var slideVal = document.getElementById("slideVal");
-    var bill = document.getElementById("bill").value;
-    var percent = slider * .01;
-    slideVal.innerHTML = slider + "%";
-    tip.innerHTML = "$" + (bill * percent).toFixed();
-}
+//function tipCalculate(slider) {
+//    var tip = document.getElementById("tip");
+//    var slideVal = document.getElementById("slideVal");
+//    var bill = document.getElementById("bill").value;
+//    var percent = slider * .01;
+//    slideVal.innerHTML = slider + "%";
+//    tip.innerHTML = "$" + (bill * percent).toFixed();
+//}

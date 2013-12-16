@@ -16,6 +16,7 @@ body {
 .expense-row1,
 .expense-row2 {
     float: left;
+    text-align: right;
 }
 .grid5 {
     width: 20%;
@@ -38,7 +39,7 @@ body {
 #calculate {
 }
 input[type="range"] {
-    height: 12px;
+    height: 6px;
     padding: 0px;
 }
 input {
@@ -47,10 +48,12 @@ input {
     font-weight: 800;
     background-color: rgb(245,245,245);
     outline-color: cornflowerblue;
-    width: 160px;
+    width: 180px;
+    text-align: right;
 }
 input[disabled] {
-    background-color: #aaa;
+    background-color: rgb(200,200,200);
+    text-align: right;
 }
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     color: white;
@@ -61,6 +64,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     padding: 10px;
     text-transform: uppercase;
     outline: none;
+    text-align: center;
 }
 fieldset {
     border: none;
@@ -69,4 +73,7 @@ fieldset {
 }
 input[type="checkbox"], input[type="radio"] {
     width: auto;
+}
+.left {
+    text-align: right;
 }
