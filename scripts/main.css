@@ -22,7 +22,10 @@ body {
     width: 20%;
 }
 .grid6 {
-    width: 16.66666666666665%;
+    width: 16.66666666665%;
+}
+.grid12 {
+    width: 8.33333333333332%
 }
 .row {
     margin-bottom: 10px;
@@ -39,7 +42,7 @@ body {
 #calculate {
 }
 input[type="range"] {
-    height: 6px;
+    height: 12px;
     padding: 0px;
 }
 input {
@@ -48,7 +51,7 @@ input {
     font-weight: 800;
     background-color: rgb(245,245,245);
     outline-color: cornflowerblue;
-    width: 180px;
+    width: 170px;
     text-align: right;
 }
 input[disabled] {
