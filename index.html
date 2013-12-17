@@ -34,6 +34,7 @@
 
         <form id="calculator" action="">
 
+            <!--Revenues-->
             <div id="revenue">
                 <div id="revenue-title"><h2>Revenue</h2></div>
                 <div class="row">
@@ -53,7 +54,9 @@
                         <input type="range" id="income-tax-slider" min="0" max="100" value="0" step="0.5" />
                     </div>
                     <div class="revenue-row1 grid5">$899,000,000,000</div>
-                    <div class="revenue-row1 grid5"><input id="income-tax-new-revenue" class="formatInput" type="text" value="$0" disabled="disabled" /></div>
+                    <div class="revenue-row1 grid5">
+                        <input id="income-tax-new-revenue" class="formatInput" type="text" value="$0" disabled="disabled" />
+                    </div>
                 </div>
                 <div class="row">
                     <div class="revenue-row2 grid5"><label for="corporate-tax">Corporation Income Taxes</label></div>
@@ -161,8 +164,11 @@
                 </div>
             </div>
 
+            <!--Expenses-->
             <div id="expense">
                 <div id="expense-title"><h2>Expenses</h2></div>
+                
+                <!--Mandatory-->
                 <fieldset>
                     <h3>Mandatory</h3>
                     <div class="row">
@@ -170,7 +176,7 @@
                         <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
                         <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
                         <div class="expense-column-header grid5">
-                            <h4><label for="check-all-mandatory">Replace with UBI? </label></h4>
+                            <h4><label for="check-all-mandatory">Transfer to UBI? </label></h4>
                             <input id="check-all-mandatory" class="check-all" type="checkbox" /></div>
                         <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
                     </div>
@@ -180,11 +186,13 @@
                             <input id="ss-expense" class="formatInput" type="text" value="$701,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="ss-slider-percent">0%</span> 
-                            <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="ss-slider-percent">100%</span> 
+                            <input type="range" id="ss-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="ss-checkbox" /></div>
+                        <div class="expense-row1 grid5">
+                            <input id="ss-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <div class="row">
                         <div class="expense-row1 grid5"><label for="medicare-expense">Medicare</label></div>
@@ -192,11 +200,13 @@
                             <input id="medicare-expense" class="formatInput" type="text" value="$446,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="medicare-slider-percent">0%</span> 
-                            <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="medicare-slider-percent">100%</span> 
+                            <input type="range" id="medicare-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="medicare-checkbox" /></div>
+                        <div class="expense-row1 grid5">
+                            <input id="medicare-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <div class="row">
                         <div class="expense-row1 grid5"><label for="medicaid-expense">Medicaid</label></div>
@@ -204,34 +214,41 @@
                             <input id="medicaid-expense" class="formatInput" type="text" value="$273,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="medicaid-slider-percent">0%</span> 
-                            <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="medicaid-slider-percent">100%</span> 
+                            <input type="range" id="medicaid-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="medicaid-checkbox"/></div>
+                        <div class="expense-row1 grid5">
+                            <input id="medicaid-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="expense-row1 grid5"><label for="tarp-expense">TARP</label></div>
+                        <div class="expense-row1 grid5"><label for="tarp-expense">Medicaid</label></div>
                         <div class="expense-row1 grid5">
-                            <input id="tarp-expense" class="formatInput" type="text" value="-$110,000,000,000" disabled="disabled" />
+                            <input id="tarp-expense" class="formatInput" type="text" value="$273,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="tarp-slider-percent">0%</span> <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="tarp-slider-percent">100%</span> 
+                            <input type="range" id="tarp-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="tarp-checkbox"/></div>
+                        <div class="expense-row1 grid5">
+                            <input id="tarp-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="expense-row1 grid5"><label for="other-mandatory-expense">Other Mandatory</label></div>
+                        <div class="expense-row1 grid5"><label for="other-expense">Medicaid</label></div>
                         <div class="expense-row1 grid5">
-                            <input id="other-mandatory-expense" class="formatInput" type="text" value="$644,000,000,000" disabled="disabled" />
+                            <input id="other-expense" class="formatInput" type="text" value="$273,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="other-slider-percent">0%</span> 
-                            <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="other-slider-percent">100%</span> 
+                            <input type="range" id="other-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="other-checkbox"/></div>
+                        <div class="expense-row1 grid5">
+                            <input id="other-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <hr />
                     <div class="row">
@@ -244,27 +261,8 @@
                         <div class="expense-row1 grid5">$0</div>
                     </div>
                 </fieldset>
-                
-                <fieldset>
-                    <h3>Net Interest</h3>
-                    <div class="row">
-                        <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
-                        <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
-                        <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
-                        <div class="expense-column-header grid5"><h4>Replace with UBI?</h4></div>
-                        <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
-                    </div>
-                    <div class="row">
-                        <div class="expense-row1 grid5"><label for="net-interest">Net Interest</label></div>
-                        <div class="expense-row1 grid5">
-                            <input id="net-interest" class="formatInput" type="text" value="$196,000,000,000" disabled="disabled" />
-                        </div>
-                        <div class="expense-row1 grid5">—</div>
-                        <div class="expense-row1 grid5">—</div>
-                        <div class="expense-row1 grid5">—</div>
-                    </div>
-                </fieldset>
 
+                <!--Discretionary-->
                 <fieldset>
                     <h3>Descretionary</h3>
                     <div class="row">
@@ -272,33 +270,38 @@
                         <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
                         <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
                         <div class="expense-column-header grid5">
-                            <h4><label for="check-all-discretionary">Replace with UBI? </label></h4>
+                            <h4><label for="check-all-discretionary">Transfer to UBI? </label></h4>
                             <input id="check-all-discretionary" class="check-all" type="checkbox" />
                         </div>
                         <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
                     </div>
                     <div class="row">
-                        <div class="expense-row1 grid5"><label for="security-expense">Security</label></div>
+                        <div class="expense-row1 grid5"><label for="security-expense">Medicaid</label></div>
                         <div class="expense-row1 grid5">
-                            <input id="security-expense" class="formatInput" type="text" value="$815,000,000,000" disabled="disabled" />
+                            <input id="security-expense" class="formatInput" type="text" value="$273,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="security-slider-percent">0%</span> <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="security-slider-percent">100%</span> 
+                            <input type="range" id="security-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="security-checkbox"/></div>
+                        <div class="expense-row1 grid5">
+                            <input id="security-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="expense-row1 grid5"><label for="non-security-expense">Non-security</label></div>
+                        <div class="expense-row1 grid5"><label for="non-security-expense">Medicaid</label></div>
                         <div class="expense-row1 grid5">
-                            <input id="non-security-expense" class="formatInput" type="text" value="$491,000,000,000" disabled="disabled" />
+                            <input id="non-security-expense" class="formatInput" type="text" value="$273,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="non-security-slider-percent">0%</span> 
-                            <input type="range" min="0" max="100" value="100" step="0.5" />
+                            <span id="non-security-slider-percent">100%</span> 
+                            <input type="range" id="non-security-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" /></div>
-                        <div class="expense-row1 grid5">$0</div>
+                        <div class="expense-row1 grid5"><input type="checkbox" id="non-security-checkbox"/></div>
+                        <div class="expense-row1 grid5">
+                            <input id="non-security-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
+                        </div>
                     </div>
                     <hr />
                     <div class="row">
@@ -311,11 +314,41 @@
                         <div class="expense-row1 grid5">$0</div>
                     </div>
                 </fieldset>
+                
+                <!--Net Interest-->
+                <fieldset>
+                    <h3>Net Interest</h3>
+                    <div class="row">
+                        <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
+                        <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
+                        <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
+                        <div class="expense-column-header grid5"><h4>Transfer to UBI?</h4></div>
+                        <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
+                    </div>
+                    <div class="row">
+                        <div class="expense-row1 grid5"><label for="net-interest">Net Interest</label></div>
+                        <div class="expense-row1 grid5">
+                            <input id="net-interest" class="formatInput" type="text" value="$196,000,000,000" disabled="disabled" />
+                        </div>
+                        <div class="expense-row1 grid5">—</div>
+                        <div class="expense-row1 grid5">—</div>
+                        <div class="expense-row1 grid5">—</div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="expense-row1 grid5">Total Expenses</div>
+                        <div class="expense-row1 grid5">
+                            <input id="total-expense" class="formatInput" type="text" value="$3,456,000,000,000" disabled="disabled" />
+                        </div>
+                        <div class="expense-row1 grid5">—</div>
+                        <div class="expense-row1 grid5">—</div>
+                        <div class="expense-row1 grid5">$0</div>
+                    </div>
+                </fieldset>
+
             </div>
 
-
-
-
+            <!--TOO BE DELETED!-->
 
             <fieldset>
                 <h3>Population</h3>
