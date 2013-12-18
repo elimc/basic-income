@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Universal Basic Income Calculator v1.1</title>
+        <title>Universal Basic Income Calculator v1.5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
@@ -30,8 +30,11 @@
         <h1>Universal Basic Income Calculator v1.1</h1>
 
         <p>The following is based on 2010 numbers. That is the date of the last census and has the most accurate numbers on US citizens.</p>
+        <p>WARNING: Changing variables in real life is very distortionary and real numbers are hard/impossible to predict. This calculator is just a good starting point to think about things.</p>
         <p><a href="http://en.wikipedia.org/wiki/2010_United_States_federal_budget">2010 US Federal Budget</a></p>
         <p><a href="http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf">2010 US Census Population Data</a></p>
+        <p><a href="http://bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a">2010 Income Base</a></p>
+        <p><a href="http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf">2010 Summary Tables</a></p>
 
         <form id="calculator" action="">
 
@@ -193,10 +196,11 @@
                     <div class="row">
                         <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
                         <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
-                        <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
+                        <div class="expense-column-header grid5"><h4>Percent to Cut</h4></div>
                         <div class="expense-column-header grid5">
-                            <h4><label for="check-all-mandatory">Transfer to UBI? </label></h4>
-                            <input id="check-all-mandatory" class="check-all" type="checkbox" /></div>
+                            <h4><label for="check-all-mandatory">Trasfer Cut to UBI? </label></h4>
+                            <!--<input id="check-all-mandatory" class="check-all" type="checkbox" />-->
+                        </div>
                         <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
                     </div>
 
@@ -254,14 +258,16 @@
                             <span id="tarp-slider-percent">100%</span> 
                             <input type="range" id="tarp-expense-slider" min="0" max="100" value="100" step="0.5" />
                         </div>
-                        <div class="expense-row1 grid5"><input type="checkbox" id="tarp-checkbox"/></div>
+                        <div class="expense-row1 grid5">
+                            <input type="checkbox" id="tarp-checkbox"/>
+                        </div>
                         <div class="expense-row1 grid5">
                             <input id="tarp-expense-new" class="formatInput" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="expense-row1 grid5"><label for="other-expense">Other</label></div>
+                        <div class="expense-row1 grid5"><label for="other-expense">Unemployment, Welfare, Other</label></div>
                         <div class="expense-row1 grid5">
                             <input id="other-expense" class="formatInput" type="text" value="$644,000,000,000" disabled="disabled" />
                         </div>
@@ -298,10 +304,10 @@
                     <div class="row">
                         <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
                         <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
-                        <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
+                        <div class="expense-column-header grid5"><h4>Percent to Cut</h4></div>
                         <div class="expense-column-header grid5">
-                            <h4><label for="check-all-discretionary">Transfer to UBI? </label></h4>
-                            <input id="check-all-discretionary" class="check-all" type="checkbox" />
+                            <h4><label for="check-all-discretionary">Trasfer Cut to UBI? </label></h4>
+                            <!--<input id="check-all-discretionary" class="check-all" type="checkbox" />-->
                         </div>
                         <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
                     </div>
@@ -359,8 +365,8 @@
                     <div class="row">
                         <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
                         <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
-                        <div class="expense-column-header grid5"><h4>Your Funding Level</h4></div>
-                        <div class="expense-column-header grid5"><h4>Transfer to UBI?</h4></div>
+                        <div class="expense-column-header grid5"><h4>Percent to Cut</h4></div>
+                        <div class="expense-column-header grid5"><h4>Trasfer Cut to UBI?</h4></div>
                         <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
                     </div>
                     
@@ -395,12 +401,19 @@
 
             <!--TOO BE DELETED!-->
 
-            <fieldset>
-                <h3>Population</h3>
-                <label for="usCitizens">Citizens 18+: </label><br>
-                <input type="text" id="us-citizens" name="" value="209,128,094" /><br>
-            </fieldset>
-
+            <h3>Population</h3>
+            <label for="us-citizens">Citizens 18+: </label><br>
+            <input type="text" id="us-citizens" name="" value="209,128,094" /><br><br>
+            
+            <label for="total-revenue-final">Total Revenue: </label><br>
+            <input type="text" id="total-revenue-final" value="$0" /><br><br>
+            
+            <label for="total-expense-final">Total Expense: </label><br>
+            <input type="text" id="total-expense-final" value="$3,456,000,000,000" /><br><br>
+            
+            <label for="deficit-surplus">Surplus or Deficit: </label><br>
+            <input type="text" id="deficit-surplus" value="$0" /><br><br>
+            
             <div id="result"></div><br>
             <input type="button" id="calculate" value="calculate" />
 

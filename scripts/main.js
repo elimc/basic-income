@@ -61,12 +61,21 @@ $(document).ready(function() {
                     discretionaryTotal;
             $("#ubi-total").val("$" + commaSeparateNumber(totalUBI) );
         
+        
+        var totalExpenseFinal = cleanUp( $("#total-expense-final").val() );
+        
+        $("#total-revenue-final").val("$" + commaSeparateNumber( revenueTotal ) );
+        
+        var deficitSurplus = revenueTotal - totalExpenseFinal;
+        
+        $("#deficit-surplus").val("$" + commaSeparateNumber(deficitSurplus) );
+        
         // Grab population section.
         var population = cleanUp( $("#us-citizens").val() );
         
         // Finally, perform the actual calculations to determine the UBI.
         var ubiRaw = totalUBI / population,
-            ubiPerYear = Math.round(ubiRaw),
+            ubiPerYear = commaSeparateNumber(Math.round(ubiRaw)),
             ubiPerMonth = commaSeparateNumber(Math.round( ubiRaw / 12 ));
         
         // Output the calculated result.
