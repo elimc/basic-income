@@ -7,28 +7,7 @@ $(document).ready(function() {
      */
     $("#calculate").click(function () {
 
-        // Grab values inserted by the user and assign then to a variable.
-        var usCitizens = $("#usCitizens").val(),
-            socialSecurity = $("#socialSecurity").val();
-            unemploymentWelfare = $("#unemploymentWelfare").val();
-            medicare = $("#medicare").val();
-            medicaid = $("#medicaid").val();
-            interestOnDebt = $("#interestOnDebt").val();
-            defenseSpending = $("#defenseSpending").val();
-            otherDiscretionary = $("#otherDiscretionary").val();
-
-        // Put the variables into an array.
-        var inputs = [ 
-                usCitizens, 
-                socialSecurity,
-                unemploymentWelfare,
-                medicare,
-                medicaid,
-                interestOnDebt,
-                defenseSpending,
-                otherDiscretionary
-            ];
-            
+        // Grab values from revenue section and sum them.
         var incomeTaxNewRevenue = cleanUp( $("#income-tax-new-revenue").val()),
             corporateTaxNewRevenue = cleanUp( $("#corporate-tax-new-revenue").val()),
             ssTaxNewRevenue = cleanUp( $("#ss-tax-new-revenue").val()),
@@ -52,47 +31,46 @@ $(document).ready(function() {
                     depositTaxNewRevenue + 
                     otherTaxNewRevenue;
             $("#revenue-total").val("$" + commaSeparateNumber(revenueTotal) );
-            
         
-
-        // Loop through the inputs array to sanitize each variable.
-        var cleanInputs = [];
-        $(inputs).each(function() {
-            currentInput = cleanUp(this);
-            cleanInputs.push(currentInput);
-        });
-        
-        // Pull each value out of the cleanInputs array and give it a variable.
-        var usCitizensClean = cleanInputs[0],
-            socialSecurityClean = cleanInputs[1],
-            unemploymentWelfareClean = cleanInputs[2],
-            medicareClean = cleanInputs[3],
-            medicaidClean = cleanInputs[4],
-            interestOnDebtClean = cleanInputs[5],
-            defenseSpendingClean = cleanInputs[6],
-            otherDiscretionarylean = cleanInputs[7];
-
-        // If the "Replace with UBI" checkbox is not checked, don't calculate it in the final equation.
-        // We do this by setting it to zero.
-        if ($("#socialSecurityChecked").prop("checked") === false) { socialSecurityClean = 0; }
-        if ($("#unemploymentWelfareChecked").prop("checked") === false) { unemploymentWelfareClean = 0; }
-        if ($("#medicareChecked").prop("checked") === false) { medicareClean = 0; }
-        if ($("#medicaidChecked").prop("checked") === false) { medicaidClean = 0; }
-        if ($("#interestOnDebtChecked").prop("checked") === false) { interestOnDebtClean = 0; }
-        if ($("#defenseSpendingChecked").prop("checked") === false) { defenseSpendingClean = 0; }
-        if ($("#otherDiscretionaryChecked").prop("checked") === false) { otherDiscretionarylean = 0; }
-
-        // Calculate the UBI payments.
-        var ubiSum = (socialSecurityClean + unemploymentWelfareClean + medicareClean
-                + medicaidClean + interestOnDebtClean + defenseSpendingClean 
-                + otherDiscretionarylean) / usCitizensClean,
-            rounded = Math.round( ubiSum ),
-            roundedWithCommas = rounded.toLocaleString("en-US"),
-            perMonth = Math.round (rounded / 12),
-            perMonthWithCommas = perMonth.toLocaleString("en-US");
+        // Grab values from expense section and sum them.
+        var ssExpenseNew = cleanUp( $("#ss-expense-new").val()),
+            medicareExpenseNew = cleanUp( $("#medicare-expense-new").val()),
+            medicaidExpenseNew = cleanUp( $("#medicaid-expense-new").val()),
+            tarpExpenseNew = cleanUp( $("#tarp-expense-new").val()),
+            otherExpenseNew = cleanUp( $("#other-expense-new").val()),
+            mandatoryTotal = ssExpenseNew + 
+                    medicareExpenseNew + 
+                    medicaidExpenseNew + 
+                    tarpExpenseNew +
+                    otherExpenseNew;
+            $("#mandatory-total").val("$" + commaSeparateNumber(mandatoryTotal) );
             
-        // Output result of calculations.
-        $("#result").html("$" + roundedWithCommas + " per citizen<br>$" + perMonthWithCommas + " per month per citizen");
+        // Grab the expense values and sum them.
+        var securityExpenseNew = cleanUp( $("#security-expense-new").val()),
+            nonSecurityExpenseNew = cleanUp( $("#non-security-expense-new").val()),
+            discretionaryTotal = securityExpenseNew + 
+                    nonSecurityExpenseNew;
+            $("#discretionary-total").val("$" + commaSeparateNumber(discretionaryTotal) );
+            
+        // Grab value from net interest section and sum the total budget.
+        var netInterest = cleanUp( $("#net-interest-expense").val()),
+            mandatoryTotal = cleanUp( $("#mandatory-total").val()),
+            discretionaryTotal= cleanUp( $("#discretionary-total").val()),
+            totalUBI  = netInterest +
+                    mandatoryTotal + 
+                    discretionaryTotal;
+            $("#ubi-total").val("$" + commaSeparateNumber(totalUBI) );
+        
+        // Grab population section.
+        var population = cleanUp( $("#us-citizens").val() );
+        
+        // Finally, perform the actual calculations to determine the UBI.
+        var ubiRaw = totalUBI / population,
+            ubiPerYear = Math.round(ubiRaw),
+            ubiPerMonth = commaSeparateNumber(Math.round( ubiRaw / 12 ));
+        
+        // Output the calculated result.
+        $("#result").html("$" + ubiPerYear + " per adult per year<br>$" + ubiPerMonth + " per adult per month");
 
     }); // End main calculator.
 

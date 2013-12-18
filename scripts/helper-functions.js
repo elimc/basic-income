@@ -1,5 +1,5 @@
 /**
- * Remove spaces, commas, and dollar signs. Make sure the element is a float.
+ * Remove spaces, commas, and dollar signs. Typecasts value into a float.
  * 
  * @param {string} rawInput User input value without sanitization.
  * @returns {float} Sanitized user input. 
