@@ -13,7 +13,7 @@ function cleanUp( rawInput ) {
 /**
  * Insert commas into number.
  * 
- * @param {flat} val number to insert commas into.
+ * @param {float} val number to insert commas into.
  * @returns {float} Number with proper commas.
  */
 function commaSeparateNumber( val ){
@@ -21,6 +21,37 @@ function commaSeparateNumber( val ){
         val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
     }
     return val;
+}
+
+/**
+ * Remove the minus symbol that comes after the dollar sign and append a minus symbol to the front of the dollar sign.
+ * 
+ * @param {string} val Number that might have a number after the dollar sign.
+ * @returns {String}
+ */
+function fixNegative( val ) {
+    if ( val.indexOf( "-" ) >= 0 ) {
+        removeNegative = val.replace(/-/g,"");
+        var fixedNegative = "-" + removeNegative;
+        return fixedNegative;
+    } else {
+        return val;
+    }
+}
+
+/**
+ * Set value to zero if value is negative.
+ * 
+ * @param {string} val Number that might be negative.
+ * @returns {String}
+ */
+function noNegative( val ) {
+    if ( val.indexOf( "-" ) >= 0 ) {
+        val = "$0";
+        return val;
+    } else {
+        return val;
+    }
 }
 
 /**

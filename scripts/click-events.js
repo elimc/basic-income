@@ -89,7 +89,7 @@ $(document).ready(function() {
         
         if ($("#tarp-checkbox").prop("checked") === true) {
             $("#tarp-slider-percent").text($("#tarp-expense-slider").val() + "%");
-            $("#tarp-expense-new").val("$" + commaSeparateNumber( sanitizedVal ));
+            $("#tarp-expense-new").val(fixNegative("$" + commaSeparateNumber( sanitizedVal )));
         } else {
             $("#tarp-slider-percent").text($("#tarp-expense-slider").val() + "%");
         }
@@ -99,7 +99,7 @@ $(document).ready(function() {
         if ($("#tarp-checkbox").prop("checked") === true) {
             var unsanitizedVal = ($("#tarp-expense-slider").val() * .01) * cleanUp($("#tarp-expense").val());
             var sanitizedVal = unsanitizedVal.toFixed();
-            $("#tarp-expense-new").val("$" + commaSeparateNumber( sanitizedVal ));
+            $("#tarp-expense-new").val(fixNegative("$" + commaSeparateNumber( sanitizedVal )));
         } else {
             $("#tarp-expense-new").val("$0");
         }

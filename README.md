@@ -36,6 +36,10 @@ TODO
 Changelog
 ---------
 
+### 1.3 (December 24, 2013)
+* Code refactoring.
+* Final calculations area is more clear for users.
+
 ### 1.2 (December 18, 2013)
 * Added revenue section.
 * Sliders determine how much to fund certain programs.

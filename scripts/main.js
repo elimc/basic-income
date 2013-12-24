@@ -41,7 +41,7 @@ $(document).ready(function() {
         $.each(mandatoryExpenseValues, function( i, val ) {
             mandatoryTotal += cleanUp( val );
         });
-        $("#mandatory-total").val("$" + commaSeparateNumber( mandatoryTotal ) );
+        $("#mandatory-total").val(fixNegative("$" + commaSeparateNumber( mandatoryTotal ) ));
         
         // Grab the expense values and sum them.
         var discretionaryExpenseValues = [
@@ -65,14 +65,14 @@ $(document).ready(function() {
         
         // Calculate the UBI value and insert the sum into UBI amount total.
         totalUBI  = mandatoryTotal + discretionaryTotal;
-        $("#ubi-total").val("$" + commaSeparateNumber( totalUBI ) );
-        $("#your-UBI-expense").val("$" + commaSeparateNumber( totalUBI ) );
+        $("#ubi-total").val(fixNegative("$" + commaSeparateNumber( totalUBI ) ));
+        $("#your-UBI-expense").val(fixNegative("$" + commaSeparateNumber( totalUBI ) ));
         
         var nonUBIExpense= 3260000000000 - totalUBI;
         $("#your-non-UBI").val("$" + commaSeparateNumber( nonUBIExpense ) );
         
         deficitSurplus = revenueTotal - 3456000000000;
-        $("#your-deficit-surplus").val("$" + commaSeparateNumber( deficitSurplus ) );
+        $("#your-deficit-surplus").val( fixNegative("$" + commaSeparateNumber( deficitSurplus )) );
         
         // Finally, perform the actual calculations to determine the UBI.
         ubiRaw = ( totalUBI / population ),
@@ -80,8 +80,8 @@ $(document).ready(function() {
         ubiPerMonth = commaSeparateNumber( Math.round( ubiRaw / 12 ) );
         
         // Output the calculated result.
-        $("#ubi-per-year").val("$" + ubiPerYear);
-        $("#ubi-per-month").val("$" + ubiPerMonth);
+        $("#ubi-per-year").val( noNegative( "$" + ubiPerYear ) );
+        $("#ubi-per-month").val( noNegative( "$" + ubiPerMonth ) );
 
     }); // End main calculator.
 

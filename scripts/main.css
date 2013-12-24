@@ -66,6 +66,7 @@ input {
 input[disabled] {
     background-color: rgb(200,200,200);
     text-align: right;
+    width: 190px;
 }
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     color: white;
