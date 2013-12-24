@@ -5,7 +5,7 @@ A public calculator that will actually attempt to put numbers to the Basic Incom
 
 **WARNING!** Changing variables in real life is very distortionary and real numbers are hard/impossible to predict. This calculator is just a good starting point to think about things.
 
-![Calculator Screenshot](https://raw.github.com/elimc/basic-income/master/images/ubi_calculator_1_2.PNG "Basic Income Calculator Image")
+![Calculator Screenshot](https://raw.github.com/elimc/basic-income/master/images/ubi_calculator_1_3.PNG "Basic Income Calculator Image")
 
 Install
 -------
