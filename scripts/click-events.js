@@ -1,15 +1,5 @@
 $(document).ready(function() {
     
-    /**
-     * Checks all the checkboxes in a specific fieldset, on user click.
-     * I haven't gotten this to completely work yet.
-     */
-//    $(function () {
-//        $('.check-all').on('click', function () {
-//            $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
-//        });
-//    }); // End checkboxes helper function.
-    
     // START EXPENSE SLIDER. These functions all have the same functionality with different id selectors.
     $("#income-tax-slider").change( function() {
         var unsanitizedVal = ($("#income-tax-slider").val() * .01) * cleanUp($("#income-tax").val());

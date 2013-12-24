@@ -7,7 +7,6 @@
 
         <link rel="stylesheet" href="scripts/normalize.css" />
         <link rel="stylesheet" href="scripts/main.css" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <!--Load jQuery-->
         <script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
@@ -35,6 +34,7 @@
         <p><a href="http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf">2010 US Census Population Data</a></p>
         <p><a href="http://bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a">2010 Income Base</a></p>
         <p><a href="http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf">2010 Summary Tables</a></p>
+        <p><a href="http://en.wikipedia.org/wiki/National_debt_of_the_United_States">2010 National Debt</a></p>
 
         <form id="calculator" action="">
 
@@ -399,23 +399,69 @@
                 </fieldset>
             </div>
 
-            <!--TOO BE DELETED!-->
-
-            <h3>Population</h3>
-            <label for="us-citizens">Citizens 18+: </label><br>
-            <input type="text" id="us-citizens" name="" value="209,128,094" /><br><br>
+            <div id="results">
+                
+                <div id="results-title"><h2>Results</h2></div>
+                
+                <div class="row">
+                    <div class="results grid3">Sum</div>
+                    <div class="results grid3"><h4>2010 Budget</h4></div>
+                    <div class="results grid3"><h4>Your Budget</h4></div>
+                </div>
+                <div class="row">
+                    <div class="results grid3">Total Revenue</div>
+                    <div class="results grid3"><input type="text" id="total-revenue-2010" value="$2,163,000,000,000" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-total-revenue" value="$0" disabled="disabled" /></div>
+                </div>
+                <div class="row">
+                    <div class="results grid3">Non-UBI Expenses</div>
+                    <div class="results grid3"><input type="text" id="non-UBI-2010" value="$3,260,000,000,000" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-non-UBI" value="$0" disabled="disabled" /></div>
+                </div>
+                <div class="row">
+                    <div class="results grid3">UBI Expenses</div>
+                    <div class="results grid3"><input type="text" id="UBI-expense-2010" value="$0" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-UBI-expense" value="$0" disabled="disabled" /></div>
+                </div>
+                <div class="row">
+                    <div class="results grid3">Net Interest</div>
+                    <div class="results grid3"><input type="text" id="net-interest-2010" value="$196,000,000,000" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-net-interest" value="$196,000,000,000" disabled="disabled" /></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="results grid3">Deficit/Surplus</div>
+                    <div class="results grid3"><input type="text" id="deficit-surplus-2010" value="$1,293,000,000,000" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-deficit-surplus" value="$0" disabled="disabled" /></div>
+                </div>
+                <div class="row">
+                    <div class="results grid3">Total Debt</div>
+                    <div class="results grid3"><input type="text" id="total-debt-2010" value="$13,526,000,000,000" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-total-debt" value="$0" disabled="disabled" /></div>
+                </div>
+                
+            </div>
             
-            <label for="total-revenue-final">Total Revenue: </label><br>
-            <input type="text" id="total-revenue-final" value="$0" /><br><br>
-            
-            <label for="total-expense-final">Total Expense: </label><br>
-            <input type="text" id="total-expense-final" value="$3,456,000,000,000" /><br><br>
-            
-            <label for="deficit-surplus">Surplus or Deficit: </label><br>
-            <input type="text" id="deficit-surplus" value="$0" /><br><br>
-            
-            <div id="result"></div><br>
-            <input type="button" id="calculate" value="calculate" />
+            <div id="calculated">
+                
+                <div id="ubi-total-title"><h2>UBI Total</h2></div>
+                
+                <div class="row">
+                    <div class="expense-row1 grid2"><label for="us-citizens">Citizens 18+</label></div>
+                    <div class="expense-row1 grid2"><input type="text" id="us-citizens" name="" value="209,128,094" /></div>
+                </div>
+                <div class="row">
+                    <div class="expense-row1 grid2">UBI per person per year</div>
+                    <div class="expense-row1 grid2"><input type="text" id="ubi-per-year" name="" value="$0" disabled="disabled" /></div>
+                </div>
+                <div class="row">
+                    <div class="expense-row1 grid2">UBI per person per month</div>
+                    <div class="expense-row1 grid2"><input type="text" id="ubi-per-month" name="" value="$0" disabled="disabled" /></div>
+                </div>
+                
+                <input type="button" id="calculate" value="calculate" />
+                
+            </div>
 
             <!--TODO: plug in the google charts API-->
             <!--<div id="chart_div"></div>-->

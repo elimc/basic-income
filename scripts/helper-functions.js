@@ -24,6 +24,16 @@ function commaSeparateNumber( val ){
 }
 
 /**
+ * Checks all the checkboxes in a specific fieldset, on user click.
+ * I haven't gotten this to completely work yet.
+ */
+//$(function () {
+//    $('.check-all').on('click', function () {
+//        $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+//    });
+//}); // End checkboxes helper function.
+
+/**
  * Add commas and a dollar sign while user is typing. Also removes cents and spaces and some other garbage.
  * 
  * jQuery formatCurrency plugin: http://plugins.jquery.com/project/formatCurrency
@@ -55,4 +65,3 @@ $(function() {
         }
     });
 }); // End formatCurrency plugin.
-    
