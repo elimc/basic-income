@@ -24,7 +24,7 @@ function commaSeparateNumber( val ){
 }
 
 /**
- * Remove the minus symbol that comes after the dollar sign and append a minus symbol to the front of the dollar sign.
+ * Remove the minus symbol that comes after the dollar sign and prepend a minus symbol to the front of the dollar sign.
  * 
  * @param {string} val Number that might have a number after the dollar sign.
  * @returns {String}

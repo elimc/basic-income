@@ -22,11 +22,11 @@ $(document).ready(function() {
             $("#other-tax-new-revenue").val()
         ];
 
-        var revenueTotal = 0;
+        var revenueSum = 0;
         $.each( revenueValues, function( i, val ) {
-            revenueTotal += cleanUp( val );
+            revenueSum += cleanUp( val );
         } );
-        $("#revenue-total").val("$" + commaSeparateNumber( revenueTotal ) );
+        $("#revenue-total").val("$" + commaSeparateNumber( revenueSum ) );
 
         // Grab values from expense section and sum them.
         var mandatoryExpenseValues = [
@@ -37,11 +37,11 @@ $(document).ready(function() {
             $("#other-expense-new").val()
         ];
 
-        var mandatoryTotal = 0;
+        var mandatorySum = 0;
         $.each(mandatoryExpenseValues, function( i, val ) {
-            mandatoryTotal += cleanUp( val );
+            mandatorySum += cleanUp( val );
         });
-        $("#mandatory-total").val(fixNegative("$" + commaSeparateNumber( mandatoryTotal ) ));
+        $("#mandatory-total").val(fixNegative("$" + commaSeparateNumber( mandatorySum ) ));
         
         // Grab the expense values and sum them.
         var discretionaryExpenseValues = [
@@ -49,33 +49,33 @@ $(document).ready(function() {
             $("#non-security-expense-new").val()
         ];
         
-        discretionaryTotal = 0;
+        var discretionarySum = 0;
         $.each( discretionaryExpenseValues, function( i, val ) {
-            discretionaryTotal += cleanUp( val );
+            discretionarySum += cleanUp( val );
         });
-        $("#discretionary-total").val("$" + commaSeparateNumber( discretionaryTotal ) );
+        $("#discretionary-total").val("$" + commaSeparateNumber( discretionarySum ) );
         
-        population = cleanUp( $("#us-citizens").val() );
+        var population = cleanUp( $("#us-citizens").val() );
         
         /**
          * PERFORM THE ACTUAL CALCULATIONS.
          */
         
-        $("#your-total-revenue").val("$" + commaSeparateNumber( revenueTotal ) );
+        $("#your-total-revenue").val("$" + commaSeparateNumber( revenueSum ) );
         
         // Calculate the UBI value and insert the sum into UBI amount total.
-        totalUBI  = mandatoryTotal + discretionaryTotal;
+        var totalUBI  = mandatorySum + discretionarySum;
         $("#ubi-total").val(fixNegative("$" + commaSeparateNumber( totalUBI ) ));
         $("#your-UBI-expense").val(fixNegative("$" + commaSeparateNumber( totalUBI ) ));
         
         var nonUBIExpense= 3260000000000 - totalUBI;
         $("#your-non-UBI").val("$" + commaSeparateNumber( nonUBIExpense ) );
         
-        deficitSurplus = revenueTotal - 3456000000000;
+        var deficitSurplus = revenueSum - 3456000000000;
         $("#your-deficit-surplus").val( fixNegative("$" + commaSeparateNumber( deficitSurplus )) );
         
         // Finally, perform the actual calculations to determine the UBI.
-        ubiRaw = ( totalUBI / population ),
+        var ubiRaw = ( totalUBI / population ),
         ubiPerYear = commaSeparateNumber( Math.round( ubiRaw ) ),
         ubiPerMonth = commaSeparateNumber( Math.round( ubiRaw / 12 ) );
         
