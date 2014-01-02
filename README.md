@@ -28,13 +28,16 @@ TODO
 
 * More info About UBI
 * Tooltips
-* Google charts integration for visual information
-* Possible integration into a framework like backbone.js
+* Integration of high charts
 * Possible addition of years other than 2010
 * World domination
 
 Changelog
 ---------
+
+### 1.3.2 (January 1, 2013)
+* Code refactoring
+* Removed google charts upon discovery of high charts.
 
 ### 1.3 (December 24, 2013)
 * Code refactoring.
@@ -44,7 +47,7 @@ Changelog
 * Added revenue section.
 * Sliders determine how much to fund certain programs.
 * New image to display major changes to calculator.
-* A lot of refactorinbg and code cleaning.
+* A lot of refactoring and code cleaning.
 
 ### 1.1 (December 9, 2013)
 * Added formatCurrency plugin for more friendly input.

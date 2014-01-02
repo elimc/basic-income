@@ -55,7 +55,10 @@ $(document).ready(function() {
         });
         $("#discretionary-total").val("$" + commaSeparateNumber( discretionarySum ) );
         
-        var population = cleanUp( $("#us-citizens").val() );
+        // Grab values for final calculations.
+        var population = cleanUp( $("#us-citizens").val() ),
+            nonUBIExpenseCurrent = cleanUp( $("#non-UBI-current").val() ),
+            totalExpenseCurrent =  cleanUp( $("#total-expense").val() );
         
         /**
          * PERFORM THE ACTUAL CALCULATIONS.
@@ -68,10 +71,10 @@ $(document).ready(function() {
         $("#ubi-total").val(fixNegative("$" + commaSeparateNumber( totalUBI ) ));
         $("#your-UBI-expense").val(fixNegative("$" + commaSeparateNumber( totalUBI ) ));
         
-        var nonUBIExpense= 3260000000000 - totalUBI;
+        var nonUBIExpense = nonUBIExpenseCurrent - totalUBI;
         $("#your-non-UBI").val("$" + commaSeparateNumber( nonUBIExpense ) );
         
-        var deficitSurplus = revenueSum - 3456000000000;
+        var deficitSurplus = revenueSum - totalExpenseCurrent;
         $("#your-deficit-surplus").val( fixNegative("$" + commaSeparateNumber( deficitSurplus )) );
         
         // Finally, perform the actual calculations to determine the UBI.

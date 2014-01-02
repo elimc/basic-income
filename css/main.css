@@ -2,9 +2,6 @@
 *, *:before, *:after {
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
-h4 {
-    display: inline;
-}
 html {
     font-size: 18px;
     padding-bottom: 50px;
@@ -12,6 +9,9 @@ html {
 body {
    width: 1140px;
    margin: 0 auto;
+}
+h4 {
+    display: inline;
 }
 #revenue {
     clear: both;
@@ -27,6 +27,11 @@ body {
     float: left;
     text-align: right;
 }
+.row {
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+}
 .grid5 {
     width: 20%;
 }
@@ -36,23 +41,13 @@ body {
 .grid2 {
     width: 50%;
 }
-.row {
-    margin-bottom: 10px;
-    float: left;
-    width: 100%;
-}
-#result {
-    margin-top: 10px;
-    height: 40px;
-    font-weight: bold;
-    color: darkgreen;
-}
-#calculate {
-    margin-top: 40px;
-}
+
 input[type="range"] {
     height: 12px;
     padding: 0px;
+}
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
 }
 input {
     padding: 0;
@@ -68,6 +63,11 @@ input[disabled] {
     text-align: right;
     width: 190px;
 }
+fieldset {
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     color: white;
     background-color: #999;
@@ -81,26 +81,17 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     float: right;
     width: 80%;
 }
-fieldset {
-    border: none;
-    margin: 0px;
-    padding: 0px;
-}
-input[type="checkbox"], input[type="radio"] {
-    width: auto;
-}
-.left {
-    text-align: right;
+
+#results {
+    width: 60%;
+    float: left;
 }
 #calculated {
     width: 40%;
     float: left;
 }
-#results {
-    width: 60%;
-    float: left;
-}
 #calculate {
+    margin-top: 40px;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
 	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
