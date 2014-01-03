@@ -32,6 +32,8 @@
         <p><a href="http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf">2010 Summary Tables</a></p>
         <p><a href="http://en.wikipedia.org/wiki/National_debt_of_the_United_States">2010 National Debt</a></p>
 
+        <a href="json/us_2010.json" id="2010" >2010</a>
+        
         <form id="calculator" action="">
 
             <!--Revenues-->
@@ -41,9 +43,9 @@
 
                 <div class="row">
                     <div class="revenue-column-header grid5"><h4>Revenue Type</h4></div>
-                    <div class="revenue-column-header grid5"><h4>2010 Income Base</h4></div>
+                    <div class="revenue-column-header grid5"><h4><span class="year">2010</span> Income Base</h4></div>
                     <div class="revenue-column-header grid5"><h4>Your Funding Level</h4></div>
-                    <div class="revenue-column-header grid5"><h4>2010 Revenue</h4></div>
+                    <div class="revenue-column-header grid5"><h4><span class="year">2010</span> Revenue</h4></div>
                     <div class="revenue-column-header grid5"><h4>Your Revenue</h4></div>
                 </div>
 
@@ -56,7 +58,7 @@
                         <span id="income-slider-percent">0%</span> 
                         <input type="range" id="income-tax-slider" min="0" max="100" value="0" step="0.5" />
                     </div>
-                    <div class="revenue-row1 grid5">$899,000,000,000</div>
+                    <div class="revenue-row1 grid5" id="income-tax-receipts">$899,000,000,000</div>
                     <div class="revenue-row1 grid5">
                         <input id="income-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -70,7 +72,7 @@
                     <div class="revenue-row2 grid5">
                         <span id="corporate-slider-percent">0%</span> <input type="range" id="corporate-tax-slider" min="0" max="100" value="0" step="1" />
                     </div>
-                    <div class="revenue-row2 grid5">$191,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="corporate-tax-receipts">$191,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="corporate-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -80,7 +82,7 @@
                     <div class="revenue-row2 grid5">Social Security Payroll Taxes</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$632,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="ss-tax-receipts">$632,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="ss-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -90,7 +92,7 @@
                     <div class="revenue-row2 grid5">Medicare Payroll Taxes</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$180,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="medicare-tax-receipts">$180,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="medicare-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -100,7 +102,7 @@
                     <div class="revenue-row2 grid5">Unimployment Insurance</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$45,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="unimployment-tax-receipts">$45,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="unimployment-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -110,7 +112,7 @@
                     <div class="revenue-row2 grid5">Other Retirement</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$8,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="other-retirement-tax-receipts">$8,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="other-retirement-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -120,7 +122,7 @@
                     <div class="revenue-row2 grid5">Excise Taxes</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$67,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="excise-tax-receipts">$67,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="excise-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -130,7 +132,7 @@
                     <div class="revenue-row2 grid5">Estate & Gift Taxes</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$19,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="estate-tax-receipts">$19,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="estate-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -140,7 +142,7 @@
                     <div class="revenue-row2 grid5">Customs Duties</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$25,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="customs-tax-receipts">$25,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="customs-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -150,7 +152,7 @@
                     <div class="revenue-row2 grid5">Deposits of earnings, Federal Reserve System</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$76,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="federal-tax-receipts">$76,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="deposit-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -160,7 +162,7 @@
                     <div class="revenue-row2 grid5">Other Miscellaneous Receipts</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$21,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="other-tax-receipts">$21,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="other-tax-new-revenue" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -172,7 +174,7 @@
                     <div class="revenue-row2 grid5">Total Revenue</div>
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5">—</div>
-                    <div class="revenue-row2 grid5">$2,163,000,000,000</div>
+                    <div class="revenue-row2 grid5" id="total-tax-receipts">$2,163,000,000,000</div>
                     <div class="revenue-row2 grid5">
                         <input id="revenue-total" type="text" value="$0" disabled="disabled" />
                     </div>
@@ -191,7 +193,7 @@
 
                     <div class="row">
                         <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
-                        <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
+                        <div class="expense-column-header grid5"><h4><span class="year">2010</span> Expense</h4></div>
                         <div class="expense-column-header grid5"><h4>Percent to Cut</h4></div>
                         <div class="expense-column-header grid5">
                             <h4><label for="check-all-mandatory">Trasfer Cut to UBI? </label></h4>
@@ -299,7 +301,7 @@
                     
                     <div class="row">
                         <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
-                        <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
+                        <div class="expense-column-header grid5"><h4><span class="year">2010</span> Expense</h4></div>
                         <div class="expense-column-header grid5"><h4>Percent to Cut</h4></div>
                         <div class="expense-column-header grid5">
                             <h4><label for="check-all-discretionary">Trasfer Cut to UBI? </label></h4>
@@ -360,7 +362,7 @@
                     
                     <div class="row">
                         <div class="expense-column-header grid5"><h4>Expense Type</h4></div>
-                        <div class="expense-column-header grid5"><h4>2010  Expense</h4></div>
+                        <div class="expense-column-header grid5"><h4><span class="year">2010</span> Expense</h4></div>
                         <div class="expense-column-header grid5"><h4>Percent to Cut</h4></div>
                         <div class="expense-column-header grid5"><h4>Trasfer Cut to UBI?</h4></div>
                         <div class="expense-column-header grid5"><h4>UBI Amount</h4></div>
@@ -401,7 +403,7 @@
                 
                 <div class="row">
                     <div class="results grid3">Sum</div>
-                    <div class="results grid3"><h4>2010 Budget</h4></div>
+                    <div class="results grid3"><h4><span class="year">2010</span> Budget</h4></div>
                     <div class="results grid3"><h4>Your Budget</h4></div>
                 </div>
                 <div class="row">
@@ -460,11 +462,91 @@
                 <input type="button" id="calculate" value="calculate" />
                 
             </div>
-
-            <!--TODO: plug in the google charts API-->
-            <!--<div id="chart_div"></div>-->
-
         </form>
 
+        <script type="text/javascript">
+            
+            $(document).ready( function () {
+                
+                $("#2010").click(function(e) {
+                    e.preventDefault();
+                    
+                    $.getJSON( "db/us_2010.json", function ( db ) {
+                        var year = db.us_2010.year,
+                            incomeBaseIndividual = db.us_2010.revenue.incomeBase.individual,
+                            incomeBaseCorporate = db.us_2010.revenue.incomeBase.corporate,
+                            receiptsIndividual = db.us_2010.revenue.receipts.individual,
+                            receiptsCorporate = db.us_2010.revenue.receipts.corporate,
+                            receiptsSSPayroll = db.us_2010.revenue.receipts.ssPayroll,
+                            receiptsMedicarePayroll = db.us_2010.revenue.receipts.medicarePayroll,
+                            receiptsunimploymentInsurance = db.us_2010.revenue.receipts.unimploymentInsurance,
+                            receiptsOtherRetirement = db.us_2010.revenue.receipts.otherRetirement,
+                            receiptsExcise = db.us_2010.revenue.receipts.excise,
+                            receiptsEstate = db.us_2010.revenue.receipts.estate,
+                            receiptscustomsDuties = db.us_2010.revenue.receipts.customsDuties,
+                            receiptsFederalReserve = db.us_2010.revenue.receipts.federalReserve,
+                            receiptsOtherMiscellaneous = db.us_2010.revenue.receipts.otherMiscellaneous,
+                            receiptsTotal = db.us_2010.revenue.receipts.total,
+                            mandatorySS = db.us_2010.expenses.mandatory.ss,
+                            mandatoryMedicare = db.us_2010.expenses.mandatory.medicare,
+                            mandatoryMedicaid = db.us_2010.expenses.mandatory.medicaid,
+                            mandatoryTarp = db.us_2010.expenses.mandatory.tarp,
+                            mandatoryunemploymentWelfare = db.us_2010.expenses.mandatory.unemploymentWelfare,
+                            mandatoryTotal = db.us_2010.expenses.mandatory.total,
+                            discretionarySecurity = db.us_2010.expenses.discretionary.security,
+                            discretionaryNonSecurity = db.us_2010.expenses.discretionary.nonSecurity,
+                            discretionaryTotal = db.us_2010.expenses.discretionary.total,
+                            netInterest = db.us_2010.expenses.netInterest,
+                            totalExpense = db.us_2010.expenses.total;
+                            resultsTotalRevenue = db.us_2010.results.totalRevenue;
+                            resultsNonUBIExpense = db.us_2010.results.nonUBIExpense;
+                            resultsDeficitSurplus = db.us_2010.results.deficitSurplus;
+                            resultsTotalDebt = db.us_2010.results.totalDebt;
+                            population = db.us_2010.population;
+                        
+                        $(".year").html( year );
+                        
+                        $("#income-tax").val( incomeBaseIndividual );
+                        $("#corporate-tax").val( incomeBaseCorporate );
+        
+                        $("#income-tax-receipts").html( receiptsIndividual );
+                        $("#corporate-tax-receipts").html( receiptsCorporate );
+                        $("#ss-tax-receipts").html( receiptsSSPayroll );
+                        $("#medicare-tax-receipts").html( receiptsMedicarePayroll );
+                        $("#unimployment-tax-receipts").html( receiptsunimploymentInsurance );
+                        $("#other-retirement-tax-receipts").html( receiptsOtherRetirement );
+                        $("#excise-tax-receipts").html( receiptsExcise );
+                        $("#estate-tax-receipts").html( receiptsEstate );
+                        $("#customs-tax-receipts").html( receiptscustomsDuties );
+                        $("#federal-tax-receipts").html( receiptsFederalReserve );
+                        $("#other-tax-receipts").html( receiptsOtherMiscellaneous );
+                        $("#total-tax-receipts").html( receiptsTotal );
+                        
+                        $("#ss-expense").val( mandatorySS );
+                        $("#medicare-expense").val( mandatoryMedicare );
+                        $("#medicaid-expense").val( mandatoryMedicaid );
+                        $("#tarp-expense").val( mandatoryTarp );
+                        $("#other-expense").val( mandatoryunemploymentWelfare );
+                        $("#mandatory-expense").val( mandatoryTotal );
+                        $("#security-expense").val( discretionarySecurity );
+                        $("#non-security-expense").val( discretionaryNonSecurity );
+                        $("#discretionary-expense").val( discretionaryTotal );
+                        $("#net-interest").val( netInterest );
+                        $("#total-expense").val( totalExpense );
+                        
+                        $("#total-revenue-current").val( resultsTotalRevenue );
+                        $("#non-UBI-current").val( resultsNonUBIExpense );
+                        $("#net-interest-current").val( netInterest );
+                        $("#deficit-surplus-current").val( resultsDeficitSurplus );
+                        $("#total-debt-current").val( resultsTotalDebt );
+                        $("#us-citizens").val( population );
+                    });
+                    
+                });
+        
+            });
+            
+        </script>
+        
     </body>
 </html>
