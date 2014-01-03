@@ -33,6 +33,8 @@
         <p><a href="http://en.wikipedia.org/wiki/National_debt_of_the_United_States">2010 National Debt</a></p>
 
         <a href="json/us_2010.json" id="2010" >2010</a>
+        <a href="json/us_2011.json" id="2011" >2011</a>
+        <a href="json/us_2012.json" id="2012" >2012</a>
         
         <form id="calculator" action="">
 
@@ -468,41 +470,41 @@
             
             $(document).ready( function () {
                 
-                $("#2010").click(function(e) {
-                    e.preventDefault();
+                function loadData ( table ) {
                     
-                    $.getJSON( "db/us_2010.json", function ( db ) {
-                        var year = db.us_2010.year,
-                            incomeBaseIndividual = db.us_2010.revenue.incomeBase.individual,
-                            incomeBaseCorporate = db.us_2010.revenue.incomeBase.corporate,
-                            receiptsIndividual = db.us_2010.revenue.receipts.individual,
-                            receiptsCorporate = db.us_2010.revenue.receipts.corporate,
-                            receiptsSSPayroll = db.us_2010.revenue.receipts.ssPayroll,
-                            receiptsMedicarePayroll = db.us_2010.revenue.receipts.medicarePayroll,
-                            receiptsunimploymentInsurance = db.us_2010.revenue.receipts.unimploymentInsurance,
-                            receiptsOtherRetirement = db.us_2010.revenue.receipts.otherRetirement,
-                            receiptsExcise = db.us_2010.revenue.receipts.excise,
-                            receiptsEstate = db.us_2010.revenue.receipts.estate,
-                            receiptscustomsDuties = db.us_2010.revenue.receipts.customsDuties,
-                            receiptsFederalReserve = db.us_2010.revenue.receipts.federalReserve,
-                            receiptsOtherMiscellaneous = db.us_2010.revenue.receipts.otherMiscellaneous,
-                            receiptsTotal = db.us_2010.revenue.receipts.total,
-                            mandatorySS = db.us_2010.expenses.mandatory.ss,
-                            mandatoryMedicare = db.us_2010.expenses.mandatory.medicare,
-                            mandatoryMedicaid = db.us_2010.expenses.mandatory.medicaid,
-                            mandatoryTarp = db.us_2010.expenses.mandatory.tarp,
-                            mandatoryunemploymentWelfare = db.us_2010.expenses.mandatory.unemploymentWelfare,
-                            mandatoryTotal = db.us_2010.expenses.mandatory.total,
-                            discretionarySecurity = db.us_2010.expenses.discretionary.security,
-                            discretionaryNonSecurity = db.us_2010.expenses.discretionary.nonSecurity,
-                            discretionaryTotal = db.us_2010.expenses.discretionary.total,
-                            netInterest = db.us_2010.expenses.netInterest,
-                            totalExpense = db.us_2010.expenses.total;
-                            resultsTotalRevenue = db.us_2010.results.totalRevenue;
-                            resultsNonUBIExpense = db.us_2010.results.nonUBIExpense;
-                            resultsDeficitSurplus = db.us_2010.results.deficitSurplus;
-                            resultsTotalDebt = db.us_2010.results.totalDebt;
-                            population = db.us_2010.population;
+                    $.getJSON( "db/" + table + ".json", function ( db ) {
+                        
+                        var year = db.year,
+                            incomeBaseIndividual = db.revenue.incomeBase.individual,
+                            incomeBaseCorporate = db.revenue.incomeBase.corporate,
+                            receiptsIndividual = db.revenue.receipts.individual,
+                            receiptsCorporate = db.revenue.receipts.corporate,
+                            receiptsSSPayroll = db.revenue.receipts.ssPayroll,
+                            receiptsMedicarePayroll = db.revenue.receipts.medicarePayroll,
+                            receiptsunimploymentInsurance = db.revenue.receipts.unimploymentInsurance,
+                            receiptsOtherRetirement = db.revenue.receipts.otherRetirement,
+                            receiptsExcise = db.revenue.receipts.excise,
+                            receiptsEstate = db.revenue.receipts.estate,
+                            receiptscustomsDuties = db.revenue.receipts.customsDuties,
+                            receiptsFederalReserve = db.revenue.receipts.federalReserve,
+                            receiptsOtherMiscellaneous = db.revenue.receipts.otherMiscellaneous,
+                            receiptsTotal = db.revenue.receipts.total,
+                            mandatorySS = db.expenses.mandatory.ss,
+                            mandatoryMedicare = db.expenses.mandatory.medicare,
+                            mandatoryMedicaid = db.expenses.mandatory.medicaid,
+                            mandatoryTarp = db.expenses.mandatory.tarp,
+                            mandatoryunemploymentWelfare = db.expenses.mandatory.unemploymentWelfare,
+                            mandatoryTotal = db.expenses.mandatory.total,
+                            discretionarySecurity = db.expenses.discretionary.security,
+                            discretionaryNonSecurity = db.expenses.discretionary.nonSecurity,
+                            discretionaryTotal = db.expenses.discretionary.total,
+                            netInterest = db.expenses.netInterest,
+                            totalExpense = db.expenses.total;
+                            resultsTotalRevenue = db.results.totalRevenue;
+                            resultsNonUBIExpense = db.results.nonUBIExpense;
+                            resultsDeficitSurplus = db.results.deficitSurplus;
+                            resultsTotalDebt = db.results.totalDebt;
+                            population = db.population;
                         
                         $(".year").html( year );
                         
@@ -540,8 +542,25 @@
                         $("#deficit-surplus-current").val( resultsDeficitSurplus );
                         $("#total-debt-current").val( resultsTotalDebt );
                         $("#us-citizens").val( population );
-                    });
-                    
+                    });                    
+                }
+                
+                $("#2010").click(function(e) {
+                    e.preventDefault();
+                    var table = "us_2010";
+                    loadData( table );
+                });
+                
+                $("#2011").click(function(e) {
+                    e.preventDefault();
+                    var table = "us_2011";
+                    loadData( table );
+                });
+                
+                $("#2012").click(function(e) {
+                    e.preventDefault();
+                    var table = "us_2012";
+                    loadData( table );
                 });
         
             });
