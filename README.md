@@ -26,10 +26,10 @@ If they are awesome, sure.
 TODO
 ----
 
+* UX/UI redesign
 * More info About UBI
 * Tooltips
 * Integration of high charts
-* Possible addition of years other than 2010
 * World domination
 
 Changelog
@@ -73,17 +73,26 @@ Sources
 -------
 
 Population:
+
 2010: http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf
+
 2011: http://www.census.gov/popest/data/historical/2010s/vintage_2011/index.html
+
 2012: http://www.census.gov/popest/data/historical/2010s/vintage_2012/datasets.html
 
+
 Income Base:
+
 http://bea.gov/iTable/iTable.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a#reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a
 
+
 Corporate Profits:
+
 http://www.bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&903=243
 
+
 Government Budget:
+
 http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf
 
 US Debt (Treasury):
