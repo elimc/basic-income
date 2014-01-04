@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Universal Basic Income Calculator v1.3.2</title>
+        <title>Universal Basic Income Calculator v1.4</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
@@ -22,15 +22,12 @@
     </head>
     <body>
         
-        <h1>Universal Basic Income Calculator v1.3.2</h1>
+        <h1>Universal Basic Income Calculator v1.4</h1>
 
         <p>The following is based on 2010 numbers. That is the date of the last census and has the most accurate numbers on US citizens.</p>
         <p>WARNING: Changing variables in real life is very distortionary and real numbers are hard/impossible to predict. This calculator is just a good starting point to think about things.</p>
-        <p><a href="http://en.wikipedia.org/wiki/2010_United_States_federal_budget">2010 US Federal Budget</a></p>
-        <p><a href="http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf">2010 US Census Population Data</a></p>
-        <p><a href="http://bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a">2010 Income Base</a></p>
-        <p><a href="http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf">2010 Summary Tables</a></p>
-        <p><a href="http://en.wikipedia.org/wiki/National_debt_of_the_United_States">2010 National Debt</a></p>
+        
+        <p>Sources used are linked in the README.md file.</p>
 
         <a href="json/us_2010.json" id="2010" >2010</a>
         <a href="json/us_2011.json" id="2011" >2011</a>
@@ -62,7 +59,7 @@
                     </div>
                     <div class="revenue-row1 grid5" id="income-tax-receipts">$899,000,000,000</div>
                     <div class="revenue-row1 grid5">
-                        <input id="income-tax-new-revenue" type="text" value="$0" disabled="disabled" />
+                        <input id="income-tax-new-revenue" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                     </div>
                 </div>
 
@@ -76,7 +73,7 @@
                     </div>
                     <div class="revenue-row2 grid5" id="corporate-tax-receipts">$191,000,000,000</div>
                     <div class="revenue-row2 grid5">
-                        <input id="corporate-tax-new-revenue" type="text" value="$0" disabled="disabled" />
+                        <input id="corporate-tax-new-revenue" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                     </div>
                 </div>
 
@@ -178,7 +175,7 @@
                     <div class="revenue-row2 grid5">—</div>
                     <div class="revenue-row2 grid5" id="total-tax-receipts">$2,163,000,000,000</div>
                     <div class="revenue-row2 grid5">
-                        <input id="revenue-total" type="text" value="$0" disabled="disabled" />
+                        <input id="revenue-total" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                     </div>
                 </div>
             
@@ -210,12 +207,12 @@
                             <input id="ss-expense" type="text" value="$701,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="ss-slider-percent">100%</span> 
-                            <input type="range" id="ss-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="ss-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="ss-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5"><input type="checkbox" id="ss-checkbox" /></div>
                         <div class="expense-row1 grid5">
-                            <input id="ss-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="ss-expense-new" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -225,12 +222,12 @@
                             <input id="medicare-expense" type="text" value="$446,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="medicare-slider-percent">100%</span> 
-                            <input type="range" id="medicare-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="medicare-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="medicare-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5"><input type="checkbox" id="medicare-checkbox" /></div>
                         <div class="expense-row1 grid5">
-                            <input id="medicare-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="medicare-expense-new" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -240,12 +237,12 @@
                             <input id="medicaid-expense" type="text" value="$273,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="medicaid-slider-percent">100%</span> 
-                            <input type="range" id="medicaid-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="medicaid-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="medicaid-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5"><input type="checkbox" id="medicaid-checkbox"/></div>
                         <div class="expense-row1 grid5">
-                            <input id="medicaid-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="medicaid-expense-new" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -255,14 +252,14 @@
                             <input id="tarp-expense" type="text" value="-$110,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="tarp-slider-percent">100%</span> 
-                            <input type="range" id="tarp-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="tarp-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="tarp-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5">
                             <input type="checkbox" id="tarp-checkbox"/>
                         </div>
                         <div class="expense-row1 grid5">
-                            <input id="tarp-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="tarp-expense-new" type="text" class="zero-it-out" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -272,12 +269,12 @@
                             <input id="other-expense" type="text" value="$644,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="other-slider-percent">100%</span> 
-                            <input type="range" id="other-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="other-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="other-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5"><input type="checkbox" id="other-checkbox"/></div>
                         <div class="expense-row1 grid5">
-                            <input id="other-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="other-expense-new" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -291,7 +288,7 @@
                         <div class="expense-row1 grid5">—</div>
                         <div class="expense-row1 grid5">—</div>
                         <div class="expense-row1 grid5">
-                            <input id="mandatory-total" type="text" value="$0" disabled="disabled" />
+                            <input id="mandatory-total" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -318,12 +315,12 @@
                             <input id="security-expense" type="text" value="$815,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="security-slider-percent">100%</span> 
-                            <input type="range" id="security-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="security-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="security-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5"><input type="checkbox" id="security-checkbox"/></div>
                         <div class="expense-row1 grid5">
-                            <input id="security-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="security-expense-new" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
                     
@@ -333,12 +330,12 @@
                             <input id="non-security-expense" type="text" value="$491,000,000,000" disabled="disabled" />
                         </div>
                         <div class="expense-row1 grid5">
-                            <span id="non-security-slider-percent">100%</span> 
-                            <input type="range" id="non-security-expense-slider" min="0" max="100" value="100" step="0.5" />
+                            <span id="non-security-slider-percent" class="reset-to-100-percent">100%</span> 
+                            <input type="range" id="non-security-expense-slider" class="reset-to-100" min="0" max="100" value="100" step="0.5" />
                         </div>
                         <div class="expense-row1 grid5"><input type="checkbox" id="non-security-checkbox"/></div>
                         <div class="expense-row1 grid5">
-                            <input id="non-security-expense-new" type="text" value="$0" disabled="disabled" />
+                            <input id="non-security-expense-new" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
                     
@@ -352,7 +349,7 @@
                         <div class="expense-row1 grid5">—</div>
                         <div class="expense-row1 grid5">—</div>
                         <div class="expense-row1 grid5">
-                            <input id="discretionary-total" type="text" value="$0" disabled="disabled" />
+                            <input id="discretionary-total" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
 
@@ -392,7 +389,7 @@
                         <div class="expense-row1 grid5">—</div>
                         <div class="expense-row1 grid5">—</div>
                         <div class="expense-row1 grid5">
-                            <input id="ubi-total" type="text" value="$0" disabled="disabled" />
+                            <input id="ubi-total" class="zero-it-out" type="text" value="$0" disabled="disabled" />
                         </div>
                     </div>
                     
@@ -411,17 +408,17 @@
                 <div class="row">
                     <div class="results grid3">Total Revenue</div>
                     <div class="results grid3"><input type="text" id="total-revenue-current" value="$2,163,000,000,000" disabled="disabled" /></div>
-                    <div class="results grid3"><input type="text" id="your-total-revenue" value="$0" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-total-revenue" class="zero-it-out" value="$0" disabled="disabled" /></div>
                 </div>
                 <div class="row">
                     <div class="results grid3">Non-UBI Expenses</div>
                     <div class="results grid3"><input type="text" id="non-UBI-current" value="$3,260,000,000,000" disabled="disabled" /></div>
-                    <div class="results grid3"><input type="text" id="your-non-UBI" value="$0" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-non-UBI" class="zero-it-out" value="$0" disabled="disabled" /></div>
                 </div>
                 <div class="row">
                     <div class="results grid3">UBI Expenses</div>
                     <div class="results grid3"><input type="text" id="UBI-expense-current" value="$0" disabled="disabled" /></div>
-                    <div class="results grid3"><input type="text" id="your-UBI-expense" value="$0" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-UBI-expense" class="zero-it-out" value="$0" disabled="disabled" /></div>
                 </div>
                 <div class="row">
                     <div class="results grid3">Net Interest</div>
@@ -432,7 +429,7 @@
                 <div class="row">
                     <div class="results grid3">Deficit/Surplus</div>
                     <div class="results grid3"><input type="text" id="deficit-surplus-current" value="-$1,293,000,000,000" disabled="disabled" /></div>
-                    <div class="results grid3"><input type="text" id="your-deficit-surplus" value="$0" disabled="disabled" /></div>
+                    <div class="results grid3"><input type="text" id="your-deficit-surplus" class="zero-it-out" value="$0" disabled="disabled" /></div>
                 </div>
                 <div class="row">
                     <div class="results grid3">Total Debt</div>
@@ -454,11 +451,11 @@
                 </div>
                 <div class="row">
                     <div class="expense-row1 grid2">UBI per person per year</div>
-                    <div class="expense-row1 grid2"><input type="text" id="ubi-per-year" name="" value="$0" disabled="disabled" /></div>
+                    <div class="expense-row1 grid2"><input type="text" id="ubi-per-year" class="zero-it-out" name="" value="$0" disabled="disabled" /></div>
                 </div>
                 <div class="row">
                     <div class="expense-row1 grid2">UBI per person per month</div>
-                    <div class="expense-row1 grid2"><input type="text" id="ubi-per-month" name="" value="$0" disabled="disabled" /></div>
+                    <div class="expense-row1 grid2"><input type="text" id="ubi-per-month" class="zero-it-out" name="" value="$0" disabled="disabled" /></div>
                 </div>
                 
                 <input type="button" id="calculate" value="calculate" />
@@ -470,98 +467,7 @@
             
             $(document).ready( function () {
                 
-                function loadData ( table ) {
-                    
-                    $.getJSON( "db/" + table + ".json", function ( db ) {
-                        
-                        var year = db.year,
-                            incomeBaseIndividual = db.revenue.incomeBase.individual,
-                            incomeBaseCorporate = db.revenue.incomeBase.corporate,
-                            receiptsIndividual = db.revenue.receipts.individual,
-                            receiptsCorporate = db.revenue.receipts.corporate,
-                            receiptsSSPayroll = db.revenue.receipts.ssPayroll,
-                            receiptsMedicarePayroll = db.revenue.receipts.medicarePayroll,
-                            receiptsunimploymentInsurance = db.revenue.receipts.unimploymentInsurance,
-                            receiptsOtherRetirement = db.revenue.receipts.otherRetirement,
-                            receiptsExcise = db.revenue.receipts.excise,
-                            receiptsEstate = db.revenue.receipts.estate,
-                            receiptscustomsDuties = db.revenue.receipts.customsDuties,
-                            receiptsFederalReserve = db.revenue.receipts.federalReserve,
-                            receiptsOtherMiscellaneous = db.revenue.receipts.otherMiscellaneous,
-                            receiptsTotal = db.revenue.receipts.total,
-                            mandatorySS = db.expenses.mandatory.ss,
-                            mandatoryMedicare = db.expenses.mandatory.medicare,
-                            mandatoryMedicaid = db.expenses.mandatory.medicaid,
-                            mandatoryTarp = db.expenses.mandatory.tarp,
-                            mandatoryunemploymentWelfare = db.expenses.mandatory.unemploymentWelfare,
-                            mandatoryTotal = db.expenses.mandatory.total,
-                            discretionarySecurity = db.expenses.discretionary.security,
-                            discretionaryNonSecurity = db.expenses.discretionary.nonSecurity,
-                            discretionaryTotal = db.expenses.discretionary.total,
-                            netInterest = db.expenses.netInterest,
-                            totalExpense = db.expenses.total;
-                            resultsTotalRevenue = db.results.totalRevenue;
-                            resultsNonUBIExpense = db.results.nonUBIExpense;
-                            resultsDeficitSurplus = db.results.deficitSurplus;
-                            resultsTotalDebt = db.results.totalDebt;
-                            population = db.population;
-                        
-                        $(".year").html( year );
-                        
-                        $("#income-tax").val( incomeBaseIndividual );
-                        $("#corporate-tax").val( incomeBaseCorporate );
-        
-                        $("#income-tax-receipts").html( receiptsIndividual );
-                        $("#corporate-tax-receipts").html( receiptsCorporate );
-                        $("#ss-tax-receipts").html( receiptsSSPayroll );
-                        $("#medicare-tax-receipts").html( receiptsMedicarePayroll );
-                        $("#unimployment-tax-receipts").html( receiptsunimploymentInsurance );
-                        $("#other-retirement-tax-receipts").html( receiptsOtherRetirement );
-                        $("#excise-tax-receipts").html( receiptsExcise );
-                        $("#estate-tax-receipts").html( receiptsEstate );
-                        $("#customs-tax-receipts").html( receiptscustomsDuties );
-                        $("#federal-tax-receipts").html( receiptsFederalReserve );
-                        $("#other-tax-receipts").html( receiptsOtherMiscellaneous );
-                        $("#total-tax-receipts").html( receiptsTotal );
-                        
-                        $("#ss-expense").val( mandatorySS );
-                        $("#medicare-expense").val( mandatoryMedicare );
-                        $("#medicaid-expense").val( mandatoryMedicaid );
-                        $("#tarp-expense").val( mandatoryTarp );
-                        $("#other-expense").val( mandatoryunemploymentWelfare );
-                        $("#mandatory-expense").val( mandatoryTotal );
-                        $("#security-expense").val( discretionarySecurity );
-                        $("#non-security-expense").val( discretionaryNonSecurity );
-                        $("#discretionary-expense").val( discretionaryTotal );
-                        $("#net-interest").val( netInterest );
-                        $("#total-expense").val( totalExpense );
-                        
-                        $("#total-revenue-current").val( resultsTotalRevenue );
-                        $("#non-UBI-current").val( resultsNonUBIExpense );
-                        $("#net-interest-current").val( netInterest );
-                        $("#deficit-surplus-current").val( resultsDeficitSurplus );
-                        $("#total-debt-current").val( resultsTotalDebt );
-                        $("#us-citizens").val( population );
-                    });                    
-                }
-                
-                $("#2010").click(function(e) {
-                    e.preventDefault();
-                    var table = "us_2010";
-                    loadData( table );
-                });
-                
-                $("#2011").click(function(e) {
-                    e.preventDefault();
-                    var table = "us_2011";
-                    loadData( table );
-                });
-                
-                $("#2012").click(function(e) {
-                    e.preventDefault();
-                    var table = "us_2012";
-                    loadData( table );
-                });
+
         
             });
             

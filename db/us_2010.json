@@ -6,7 +6,7 @@
 
         "incomeBase" : {
             "individual" : "$12,435,200,000,000",
-            "corporate" : "$1,234,000,000,000"
+            "corporate" : "$1,834,833,000,000"
         },
 
         "receipts" : {
@@ -51,9 +51,9 @@
         "totalRevenue" : "$2,163,000,000,000",
         "nonUBIExpense" : "$3,260,000,000,000",
         "deficitSurplus" : "-$1,293,000,000,000",
-        "totalDebt" : "-$13,526,000,000,000"
+        "totalDebt" : "-$13,562,000,000,000"
     },
 
-    "population" : "209,128,094"
+    "population" : "234,564,071"
     
 }

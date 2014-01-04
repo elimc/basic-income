@@ -55,6 +55,23 @@ function noNegative( val ) {
 }
 
 /**
+ * Reset everything in the calculator to its original value.
+ */
+function resestValues () {
+    $( "form input:checkbox" ).prop('checked', false);
+
+    $("form #income-tax-slider").val("0");
+    $("form #corporate-tax-slider").val("0");
+
+    $("form #income-slider-percent").html("0%");
+    $("form #corporate-slider-percent").html("0%");
+
+    $("form .zero-it-out").val("$0");
+    $("form .reset-to-100").val("100");
+    $("form .reset-to-100-percent").html("100%");
+}
+
+/**
  * Checks all the checkboxes in a specific fieldset, on user click.
  * I haven't gotten this to completely work yet.
  */

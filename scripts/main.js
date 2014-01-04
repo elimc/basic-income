@@ -1,4 +1,108 @@
 $(document).ready(function() {
+    
+    /**
+     * Load a JSON files and insert its values into the calculator.
+     * 
+     * @param {string} table - JSON page to load.
+     * @returns {undefined}
+     */
+    function loadData ( table ) {
+
+        // Load specific JSON page depending on which link is clicked.
+        $.getJSON( "db/" + table + ".json", function ( db ) {
+
+            // Assign JSON values to variables.
+            var year = db.year,
+                incomeBaseIndividual = db.revenue.incomeBase.individual,
+                incomeBaseCorporate = db.revenue.incomeBase.corporate,
+                receiptsIndividual = db.revenue.receipts.individual,
+                receiptsCorporate = db.revenue.receipts.corporate,
+                receiptsSSPayroll = db.revenue.receipts.ssPayroll,
+                receiptsMedicarePayroll = db.revenue.receipts.medicarePayroll,
+                receiptsunimploymentInsurance = db.revenue.receipts.unimploymentInsurance,
+                receiptsOtherRetirement = db.revenue.receipts.otherRetirement,
+                receiptsExcise = db.revenue.receipts.excise,
+                receiptsEstate = db.revenue.receipts.estate,
+                receiptscustomsDuties = db.revenue.receipts.customsDuties,
+                receiptsFederalReserve = db.revenue.receipts.federalReserve,
+                receiptsOtherMiscellaneous = db.revenue.receipts.otherMiscellaneous,
+                receiptsTotal = db.revenue.receipts.total,
+                mandatorySS = db.expenses.mandatory.ss,
+                mandatoryMedicare = db.expenses.mandatory.medicare,
+                mandatoryMedicaid = db.expenses.mandatory.medicaid,
+                mandatoryTarp = db.expenses.mandatory.tarp,
+                mandatoryunemploymentWelfare = db.expenses.mandatory.unemploymentWelfare,
+                mandatoryTotal = db.expenses.mandatory.total,
+                discretionarySecurity = db.expenses.discretionary.security,
+                discretionaryNonSecurity = db.expenses.discretionary.nonSecurity,
+                discretionaryTotal = db.expenses.discretionary.total,
+                netInterest = db.expenses.netInterest,
+                totalExpense = db.expenses.total;
+                resultsTotalRevenue = db.results.totalRevenue;
+                resultsNonUBIExpense = db.results.nonUBIExpense;
+                resultsDeficitSurplus = db.results.deficitSurplus;
+                resultsTotalDebt = db.results.totalDebt;
+                population = db.population;
+
+            $(".year").html( year );
+
+            $("#income-tax").val( incomeBaseIndividual );
+            $("#corporate-tax").val( incomeBaseCorporate );
+
+            $("#income-tax-receipts").html( receiptsIndividual );
+            $("#corporate-tax-receipts").html( receiptsCorporate );
+            $("#ss-tax-receipts").html( receiptsSSPayroll );
+            $("#medicare-tax-receipts").html( receiptsMedicarePayroll );
+            $("#unimployment-tax-receipts").html( receiptsunimploymentInsurance );
+            $("#other-retirement-tax-receipts").html( receiptsOtherRetirement );
+            $("#excise-tax-receipts").html( receiptsExcise );
+            $("#estate-tax-receipts").html( receiptsEstate );
+            $("#customs-tax-receipts").html( receiptscustomsDuties );
+            $("#federal-tax-receipts").html( receiptsFederalReserve );
+            $("#other-tax-receipts").html( receiptsOtherMiscellaneous );
+            $("#total-tax-receipts").html( receiptsTotal );
+
+            $("#ss-expense").val( mandatorySS );
+            $("#medicare-expense").val( mandatoryMedicare );
+            $("#medicaid-expense").val( mandatoryMedicaid );
+            $("#tarp-expense").val( mandatoryTarp );
+            $("#other-expense").val( mandatoryunemploymentWelfare );
+            $("#mandatory-expense").val( mandatoryTotal );
+            $("#security-expense").val( discretionarySecurity );
+            $("#non-security-expense").val( discretionaryNonSecurity );
+            $("#discretionary-expense").val( discretionaryTotal );
+            $("#net-interest").val( netInterest );
+            $("#total-expense").val( totalExpense );
+
+            $("#total-revenue-current").val( resultsTotalRevenue );
+            $("#non-UBI-current").val( resultsNonUBIExpense );
+            $("#net-interest-current").val( netInterest );
+            $("#deficit-surplus-current").val( resultsDeficitSurplus );
+            $("#total-debt-current").val( resultsTotalDebt );
+            $("#us-citizens").val( population );
+        });                    
+    }
+
+    // Load the US 2010 budget.
+    $("#2010").click(function(e) {
+        e.preventDefault();
+        resestValues();
+        loadData( table = "us_2010" );
+    });
+
+    // Load the US 2011 budget.
+    $("#2011").click(function(e) {
+        e.preventDefault();
+        resestValues();
+        loadData( table = "us_2011" );
+    });
+
+    // Load the US 2012 budget.
+    $("#2012").click(function(e) {
+        e.preventDefault();
+        resestValues();
+        loadData( table = "us_2012" );
+    });
 
     /**
      * Main Calculator

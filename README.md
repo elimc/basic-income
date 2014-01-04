@@ -35,6 +35,10 @@ TODO
 Changelog
 ---------
 
+### 1.4 (January 3, 2013)
+* Abstracted data to json file
+* Added mutiple years to budget
+
 ### 1.3.2 (January 1, 2013)
 * Code refactoring
 * Removed google charts upon discovery of high charts.
@@ -64,3 +68,23 @@ Eli McMakin
 Web site: www.elimcmakin.com
 
 GitHub: https://github.com/elimc
+
+Sources
+-------
+
+Population:
+2010: http://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf
+2011: http://www.census.gov/popest/data/historical/2010s/vintage_2011/index.html
+2012: http://www.census.gov/popest/data/historical/2010s/vintage_2012/datasets.html
+
+Income Base:
+http://bea.gov/iTable/iTable.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a#reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a
+
+Corporate Profits:
+http://www.bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&903=243
+
+Government Budget:
+http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf
+
+US Debt (Treasury):
+http://en.wikipedia.org/wiki/National_debt_of_the_United_States

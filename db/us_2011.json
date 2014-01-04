@@ -5,23 +5,23 @@
     "revenue": {
 
         "incomeBase" : {
-            "individual" : "$12,435,200,000,000",
-            "corporate" : "$1,234,000,000,000"
+            "individual" : "$13,191,300,000,000",
+            "corporate" : "$1,847,355,000,000"
         },
 
         "receipts" : {
-            "individual" : "$899,000,000,000",
-            "corporate" : "$191,000,000,000",
-            "ssPayroll" : "$632,000,000,000",
-            "medicarePayroll" : "$180,000,000,000",
-            "unimploymentInsurance" : "$45,000,000,000",
+            "individual" : "$956,000,000,000",
+            "corporate" : "$198,000,000,000",
+            "ssPayroll" : "$559,000,000,000",
+            "medicarePayroll" : "$187,000,000,000",
+            "unimploymentInsurance" : "$52,000,000,000",
             "otherRetirement" : "$8,000,000,000",
-            "excise" : "$67,000,000,000",
-            "estate" : "$19,000,000,000",
-            "customsDuties" : "$25,000,000,000",
-            "federalReserve" : "$76,000,000,000",
-            "otherMiscellaneous" : "$21,000,000,000",
-            "total" : "$2,163,000,000,000"
+            "excise" : "$74,000,000,000",
+            "estate" : "$12,000,000,000",
+            "customsDuties" : "$28,000,000,000",
+            "federalReserve" : "$80,000,000,000",
+            "otherMiscellaneous" : "$19,000,000,000",
+            "total" : "$2,174,000,000,000"
         }
 
     },
@@ -29,31 +29,31 @@
     "expenses" : {
 
         "mandatory" : {
-            "ss" : "$701,000,000,000",
-            "medicare" : "$446,000,000,000",
-            "medicaid" : "$273,000,000,000",
-            "tarp" : "-$110,000,000,000",
-            "unemploymentWelfare" : "$644,000,000,000",
-            "total" : "$1,954,000,000,000"
+            "ss" : "$742,000,000,000",
+            "medicare" : "$488,000,000,000",
+            "medicaid" : "$276,000,000,000",
+            "tarp" : "-$28,000,000,000",
+            "unemploymentWelfare" : "$716,000,000,000",
+            "total" : "$2,194,000,000,000"
         },
 
         "discretionary" : {
-            "security" : "$815,000,000,000",
-            "nonSecurity" : "$491,000,000,000",
-            "total" : "$1,306,000,000,000"
+            "security" : "$908,000,000,000",
+            "nonSecurity" : "$507,000,000,000",
+            "total" : "$1,416,000,000,000"
         },
 
-        "netInterest" : "$196,000,000,000",
-        "total" : "$3,456,000,000,000"
+        "netInterest" : "$207,000,000,000",
+        "total" : "$3,819,000,000,000"
     },
 
     "results" : {
-        "totalRevenue" : "$2,163,000,000,000",
-        "nonUBIExpense" : "$3,260,000,000,000",
-        "deficitSurplus" : "-$1,293,000,000,000",
-        "totalDebt" : "-$13,526,000,000,000"
+        "totalRevenue" : "$2,174,000,000,000",
+        "nonUBIExpense" : "$3,612,000,000,000",
+        "deficitSurplus" : "-$1,645,000,000,000",
+        "totalDebt" : "-$14,790,000,000,000"
     },
 
-    "population" : "209,128,094"
+    "population" : "237,657,645"
         
 }
