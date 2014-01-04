@@ -80,20 +80,10 @@ Population:
 
 2012: http://www.census.gov/popest/data/historical/2010s/vintage_2012/datasets.html
 
+Income Base: http://bea.gov/iTable/iTable.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a#reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a
 
-Income Base:
+Corporate Profits: http://www.bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&903=243
 
-http://bea.gov/iTable/iTable.cfm?reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a#reqid=9&step=3&isuri=1&910=x&911=0&903=58&904=2010&905=2013&906=a
+Government Budget: http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf
 
-
-Corporate Profits:
-
-http://www.bea.gov/iTable/iTableHtml.cfm?reqid=9&step=3&isuri=1&903=243
-
-
-Government Budget:
-
-http://www.gpo.gov/fdsys/pkg/BUDGET-2012-BUD/pdf/BUDGET-2012-BUD-29.pdf
-
-US Debt (Treasury):
-http://en.wikipedia.org/wiki/National_debt_of_the_United_States
+US Debt (Treasury): http://en.wikipedia.org/wiki/National_debt_of_the_United_States
